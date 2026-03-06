@@ -1,0 +1,399 @@
+/* ============================= */
+/* RESET                         */
+/* ============================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================= */
+/* VIBRANT DARK THEME            */
+/* ============================= */
+
+body {
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(1000px 600px at 50% -100px, rgba(255,120,60,0.18), transparent 70%),
+    radial-gradient(800px 500px at 90% 10%, rgba(0,140,255,0.15), transparent 65%),
+    radial-gradient(700px 500px at 10% 40%, rgba(150,80,255,0.12), transparent 65%),
+    linear-gradient(180deg, #0d0f14 0%, #090b10 60%, #07080c 100%);
+  color: #f2f4f8;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+/* subtle grain */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================= */
+/* LIGHT MODE                    */
+/* ============================= */
+
+body.light {
+  background:
+    radial-gradient(800px 500px at 50% -200px, rgba(255,120,60,0.10), transparent 70%),
+    radial-gradient(600px 400px at 80% 10%, rgba(0,140,255,0.10), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f3f6fb 70%, #eef2f8 100%);
+  color: #111827;
+}
+
+/* ============================= */
+/* NAVBAR                        */
+/* ============================= */
+
+.navbar {
+  padding: 26px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: inherit;
+  opacity: 0.8;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-right a:hover {
+  opacity: 1;
+  color: #ff7a3d;
+}
+
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 17px;
+}
+
+.header-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+body.light .header-divider {
+  background: rgba(0,0,0,0.08);
+}
+
+/* ============================= */
+/* CONTAINER                     */
+/* ============================= */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 120px 24px 220px 24px;
+  position: relative;
+  z-index: 5;
+}
+
+/* ============================= */
+/* HERO                          */
+/* ============================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+}
+
+/* ambient glow */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(255,120,60,0.25), transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+}
+
+.hero-text h1 {
+  font-size: 52px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.6px;
+  background: linear-gradient(90deg, #ffffff, #b8d6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.light .hero-text h1 {
+  background: linear-gradient(90deg, #111827, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 22px;
+  color: #ff7a3d;
+}
+
+.hero-text p {
+  font-size: 16px;
+  opacity: 0.85;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  max-width: 520px;
+}
+
+/* ============================= */
+/* IMAGE                         */
+/* ============================= */
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  width: 360px;
+  height: 430px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+  transition: transform 0.4s ease;
+}
+
+.image-frame:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+body.light .image-frame {
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================= */
+/* JOURNEY SECTION               */
+/* ============================= */
+
+.resume-section {
+  margin-top: 160px;
+  padding-top: 100px;
+  position: relative;
+}
+
+.resume-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+body.light .resume-section::before {
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.15), transparent);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-header h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+/* Resume Button */
+
+.resume-btn {
+  display: inline-block;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.resume-btn:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-3px);
+}
+
+body.light .resume-btn {
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.04);
+}
+
+body.light .resume-btn:hover {
+  background: rgba(0,0,0,0.08);
+}
+
+/* ============================= */
+/* JOURNEY FLOW                  */
+/* ============================= */
+
+.journey-flow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+.journey-node {
+  width: 230px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.journey-node:hover {
+  transform: translateY(-6px);
+}
+
+.logo {
+  width: 78px;
+  height: 78px;
+  margin-bottom: 20px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+body.light .logo {
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.journey-node h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.journey-node p {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.journey-node span {
+  font-size: 13px;
+  opacity: 0.5;
+}
+
+.flow-arrow {
+  font-size: 22px;
+  opacity: 0.3;
+  margin-top: 32px;
+}
+
+.journey-node.current .logo {
+  box-shadow: 0 0 35px rgba(0,140,255,0.6);
+}
+
+/* ============================= */
+/* FOOTER                        */
+/* ============================= */
+
+.bottom-socials {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+  padding: 14px 32px;
+  border-radius: 40px;
+  background: rgba(15,18,25,0.85);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.bottom-socials:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+body.light .bottom-socials {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bottom-socials a {
+  font-size: 22px;
+  color: inherit;
+  opacity: 0.8;
+  transition: all 0.25s ease;
+}
+
+.bottom-socials a:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .journey-flow {
+    flex-wrap: wrap;
+  }
+
+  .flow-arrow {
+    display: none;
+  }
+}
