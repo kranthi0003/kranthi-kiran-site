@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kranthi Kiran</title>
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.png">
+
+  <!-- Open Graph Meta -->
+  <meta property="og:title" content="Kranthi Kiran – Backend Engineer" />
+  <meta property="og:description" content="Backend engineering. Distributed systems. Reliability at scale. Portfolio of Kranthi Kiran." />
+  <meta property="og:image" content="https://kranthi0003.github.io/kranthi-kiran-site/assets/profile.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kranthi0003.github.io/kranthi-kiran-site/" />
+
+  <!-- Twitter Card Meta -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kranthi Kiran – Backend Engineer" />
+  <meta name="twitter:description" content="Backend engineering. Distributed systems. Reliability at scale. Portfolio of Kranthi Kiran." />
+  <meta name="twitter:image" content="https://kranthi0003.github.io/kranthi-kiran-site/assets/profile.png" />
+
+  <!-- Mobile & Theme Meta -->
+  <meta name="theme-color" content="#22223b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
   <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
@@ -14,154 +37,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="nav-left">Kranthi Kiran</div>
-
-    <div class="nav-right">
-      <a href="#resume">Journey</a>
-      <button id="themeToggle" class="theme-btn">
-        <i class="fa-solid fa-sun"></i>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<div class="header-divider"></div>
-
-<main class="container">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hey, I’m Kranthi.</h1>
-
-      <p class="tagline">
-        Backend engineering. Distributed systems. Reliability at scale.
-      </p>
-
-      <p>
-        Software engineer with 4+ years of experience across cloud platforms,
-        distributed databases, and production-critical systems.
-      </p>
-
-      <p>
-        I focus on debugging complex issues, improving performance,
-        and building systems that scale reliably.
-      </p>
-    </div>
-
-    <div class="hero-image">
-      <div class="image-frame">
-        <img src="./assets/profile.png" alt="Kranthi">
-      </div>
-    </div>
-  </section>
-
-  <!-- JOURNEY -->
-  <section id="resume" class="resume-section">
-
-    <div class="section-header">
-      <h2>Journey</h2>
-
-      <a href="./assets/Kranthi_Resume.pdf"
-         class="resume-btn"
-         download>
-         Download Resume
-      </a>
-    </div>
-
-    <div class="journey-flow">
-
-      <div class="journey-node">
-        <img src="./assets/aws.png" class="logo">
-        <h3>Support Engineer – 1</h3>
-        <p>Amazon Web Services</p>
-        <span>2021 – 2024</span>
-      </div>
-
-      <div class="flow-arrow">→</div>
-
-      <div class="journey-node">
-        <img src="./assets/groww.png" class="logo">
-        <h3>PSE – 2</h3>
-        <p>Groww</p>
-        <span>2025</span>
-      </div>
-
-      <div class="flow-arrow">→</div>
-
-      <div class="journey-node">
-        <img src="./assets/couchbase.png" class="logo">
-        <h3>TSE – 2</h3>
-        <p>Couchbase</p>
-        <span>2025 – 2026</span>
-      </div>
-
-      <div class="flow-arrow">→</div>
-
-      <div class="journey-node current">
-        <img src="./assets/github.png" class="logo">
-        <h3>TSE – 3</h3>
-        <p>GitHub</p>
-        <span>2026 – Present</span>
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-<!-- FOOTER -->
-<div class="bottom-socials">
-  <a href="https://www.youtube.com/@kkiran003"
-     target="_blank"
-     rel="noopener noreferrer">
-     <i class="fa-brands fa-youtube"></i>
-  </a>
-
-  <a href="https://www.linkedin.com/in/akkiran003/"
-     target="_blank"
-     rel="noopener noreferrer">
-     <i class="fa-brands fa-linkedin"></i>
-  </a>
-
-  <a href="https://www.instagram.com/kkiran.003/"
-     target="_blank"
-     rel="noopener noreferrer">
-     <i class="fa-brands fa-instagram"></i>
-  </a>
-
-  <a href="https://github.com/kranthi0003"
-     target="_blank"
-     rel="noopener noreferrer">
-     <i class="fa-brands fa-github"></i>
-  </a>
-</div>
-
-<script>
-const toggle = document.getElementById("themeToggle");
-const icon = toggle.querySelector("i");
-
-if (localStorage.getItem("theme") === "light") {
-  document.body.classList.add("light");
-  icon.classList.replace("fa-sun", "fa-moon");
-}
-
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("light");
-
-  if (document.body.classList.contains("light")) {
-    localStorage.setItem("theme", "light");
-    icon.classList.replace("fa-sun", "fa-moon");
-  } else {
-    localStorage.setItem("theme", "dark");
-    icon.classList.replace("fa-moon", "fa-sun");
-  }
-});
-</script>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
