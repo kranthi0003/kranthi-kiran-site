@@ -40,16 +40,3 @@ What changed / features
 - Unifying design tokens in `style.css` (colors, spacing, shadows, radii).
 - Reveal animations for Journey nodes and a floating socials/footer UI.
 
-Notes about deployment
-
-- GitHub Pages: you can deploy the `dist` output from `vite build` to GitHub Pages. A simple approach is to use the `gh-pages` branch or configure GitHub Actions to build and deploy automatically.
-- If you'd like, I can add a GitHub Actions workflow that builds and publishes to Pages on push to `main`.
-
-Next steps I can do for you
-
-- Run the dev server and verify the build locally (I can run it here and share logs).
-- Clean up leftover temporary artifacts and remove `index.static.html` if you no longer need the backup.
-- Add a small CI workflow to build on push and optionally deploy to GitHub Pages.
-
-If you want me to push the cleaned repository to your GitHub account, tell me which remote name or repository URL to use (I will push only after you confirm).
-
