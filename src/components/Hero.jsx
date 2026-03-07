@@ -1,4 +1,5 @@
 import React from 'react'
+import profile from '../../assets/profile.png'
 
 export default function Hero(){
   return (
@@ -12,7 +13,7 @@ export default function Hero(){
 
       <div className="hero-image">
         <div className="image-frame">
-          <img id="profileImage" src="./assets/profile.png" alt="Portrait of Kranthi Kiran, backend engineer" loading="lazy" />
+          <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" loading="lazy" />
         </div>
       </div>
     </section>
