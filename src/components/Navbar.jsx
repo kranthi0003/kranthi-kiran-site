@@ -13,6 +13,7 @@ export default function Navbar({ theme = 'dark', toggleTheme, active = 'home' })
         <div className="nav-right">
           <a href="#top" className={active === 'home' ? 'active' : ''} aria-current={active === 'home' ? 'page' : undefined}>Home</a>
           <a href="#resume" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined}>Journey</a>
+          <a href="/photography.html">Photography</a>
           <button id="themeToggle" className="theme-btn" aria-label={ariaLabel} aria-pressed={ariaPressed} onClick={toggleTheme}>
             <i className={`fa-solid ${iconClass}`} aria-hidden="true"></i>
           </button>

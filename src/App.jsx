@@ -32,7 +32,7 @@ export default function App(){
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id
-          if (id === 'top' || id === '') setActiveSection('home')
+      if (id === 'top' || id === '') setActiveSection('home')
           else if (id === 'resume') setActiveSection('journey')
         }
       })
