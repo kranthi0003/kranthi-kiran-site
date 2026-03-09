@@ -1,5 +1,5 @@
 
-# kranthi-kiran-site
+# PERSONAL SITE
 
 Personal portfolio site for Kranthi Kiran. This repository contains a modernized, componentized React + Vite version of the original static site plus a static backup (`index.static.html`). The site focuses on a clean, accessible, and responsive single-page experience (Hero + Journey), with a theme toggle, skip-link, and reveal animations.
 
