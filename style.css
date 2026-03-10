@@ -1480,12 +1480,17 @@ body.light .contact-form textarea { background: #fff; border-color: rgba(0,0,0,0
 .featured-section {
   margin-top: 80px;
   margin-bottom: 80px;
-  padding: 60px var(--container-padding);
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 48px;
+  border-radius: 16px;
   position: relative;
   z-index: 3;
   width: 100%;
+  max-width: 1400px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
 .featured-section .section-header {
@@ -1538,6 +1543,12 @@ body.light .featured-section .section-header p {
   color: rgba(34,34,59,0.7);
 }
 
+body.light .featured-section {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(240,245,250,0.3));
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
 /* Projects grid */
 .projects-grid {
   display: grid;
@@ -1554,8 +1565,8 @@ body.light .featured-section .section-header p {
   position: relative;
   padding: 24px 20px;
   border-radius: var(--radius-lg);
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, rgba(10,13,19,0.7), rgba(15,18,25,0.7));
+  border: 1px solid rgba(255,255,255,0.1);
   border-top-width: 2px;
   cursor: pointer;
   transition: all 280ms ease;
@@ -1567,6 +1578,9 @@ body.light .featured-section .section-header p {
   text-align: center;
   min-height: 200px;
   position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
 .project-card::before {
@@ -1587,9 +1601,10 @@ body.light .featured-section .section-header p {
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.03);
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.2);
+  background: linear-gradient(135deg, rgba(10,13,19,0.85), rgba(15,18,25,0.85));
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
 }
 
 .project-card:hover::before {
@@ -1597,13 +1612,15 @@ body.light .featured-section .section-header p {
 }
 
 body.light .project-card {
-  background: transparent;
-  border-color: rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, rgba(248,249,250,0.8), rgba(240,242,245,0.8));
+  border-color: rgba(0,0,0,0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
 body.light .project-card:hover {
-  background: rgba(0,0,0,0.02);
-  border-color: rgba(0,0,0,0.12);
+  background: linear-gradient(135deg, rgba(248,249,250,0.95), rgba(240,242,245,0.95));
+  border-color: rgba(0,0,0,0.15);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.15);
 }
 
 /* Accent color variants */
@@ -1931,7 +1948,9 @@ body.light .feature-details p {
   .featured-section {
     margin-top: 60px;
     margin-bottom: 60px;
-    padding: 40px 0;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 40px 24px;
   }
 
   .featured-section .section-header {
