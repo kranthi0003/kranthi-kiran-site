@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import FeaturedProjects from './components/FeaturedProjects'
+import CompanyLogos from './components/CompanyLogos'
+import QuickStats from './components/QuickStats'
+import FeaturedPreview from './components/FeaturedPreview'
+import ConnectSection from './components/ConnectSection'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import Cryto from './components/Cryto'
@@ -150,11 +153,14 @@ export default function App() {
           ) : route === "/journey" ? (
             <Journey />
           ) : route === "/projects" ? (
-            <Projects />
+            <Projects navigate={navigate} />
           ) : (
             <>
               <Hero id="top" />
-              <FeaturedProjects navigate={navigate} />
+              <CompanyLogos />
+              <QuickStats />
+              <FeaturedPreview navigate={navigate} />
+              <ConnectSection />
             </>
           )}
         </div>

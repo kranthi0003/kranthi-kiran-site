@@ -10,7 +10,7 @@ export default function Hero(){
     <section id="top" className="hero">
       <div className="hero-text">
         <h1>Hey, I'm Kranthi.</h1>
-        <p className="tagline">Building scalable systems & solving complex problems</p>
+        <p className="tagline">I break things, fix them, and make them faster ⚡</p>
         <p>
           <span 
             className="skill-trigger"
@@ -26,21 +26,14 @@ export default function Hero(){
           >
             Cloud Engineer
           </span>
-          {' '}with 4+ years of experience building production-grade systems at Amazon, Couchbase, and GitHub.
+          {' '}who's spent 4+ years wrangling servers at Amazon, Couchbase, and GitHub.
         </p>
-        <p>I specialize in distributed systems, performance optimization, and creating reliable infrastructure that handles scale.</p>
+        <p>Big fan of distributed systems, making slow things go brrr, and building infra that doesn't page me at 3am.</p>
       </div>
 
       <div className="hero-image">
         <div className="image-frame">
           <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" loading="lazy" />
-        </div>
-      </div>
-
-      <div className="scroll-indicator">
-        <div className="scroll-icon">
-          <div className="scroll-wheel"></div>
-          <p>Scroll to explore</p>
         </div>
       </div>
     </section>
