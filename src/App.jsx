@@ -10,7 +10,7 @@ import Photography from './components/Photography'
 export default function App() {
   const [theme, setTheme] = useState('dark')
   const [activeSection, setActiveSection] = useState('home')
-  const [route, setRoute] = useState(window.location.pathname)
+  const [route, setRoute] = useState(window.location.pathname + window.location.hash)
   // initialize theme from localStorage or system preference
   useEffect(() => {
     const stored = localStorage.getItem('theme')
@@ -23,16 +23,36 @@ export default function App() {
     }
   }, [])
 
-  // Listen for navigation
+  // Listen for navigation (both popstate and hash changes)
   useEffect(() => {
-    const handler = () => setRoute(window.location.pathname)
+    const handler = () => {
+      setRoute(window.location.pathname + window.location.hash)
+    }
     window.addEventListener("popstate", handler)
-    return () => window.removeEventListener("popstate", handler)
+    window.addEventListener("hashchange", handler)
+    return () => {
+      window.removeEventListener("popstate", handler)
+      window.removeEventListener("hashchange", handler)
+    }
   }, [])
 
   const navigate = (path) => {
     window.history.pushState({}, "", path)
     setRoute(path)
+    // Scroll behavior based on path
+    setTimeout(() => {
+      if (path === "/" || path === "") {
+        // Scroll to top for home
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      } else if (path.includes('#')) {
+        // Scroll to hash element
+        const hash = path.split('#')[1]
+        const el = document.getElementById(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }
+    }, 0)
   }
 
   useEffect(() => {
@@ -41,24 +61,16 @@ export default function App() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  // highlight active section as user scrolls
+  // Update active section based on route
   useEffect(() => {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id
-          if (id === 'top' || id === '') setActiveSection('home')
-          else if (id === 'resume') setActiveSection('journey')
-        }
-      })
-    }, { root: null, threshold: 0.45 })
-
-    const top = document.getElementById('top')
-    const resume = document.getElementById('resume')
-    if (top) obs.observe(top)
-    if (resume) obs.observe(resume)
-    return () => obs.disconnect()
-  }, [])
+    if (route === '/cryto' || route === '/photography') {
+      setActiveSection(null)
+    } else if (route.includes('#resume')) {
+      setActiveSection('journey')
+    } else {
+      setActiveSection('home')
+    }
+  }, [route])
 
   // intentionally single-page: Hero and Journey both render; navbar links use anchors (#resume)
 
@@ -76,8 +88,8 @@ export default function App() {
             <Photography />
           ) : (
             <>
-              <Hero />
-              <Journey />
+              <Hero id="top" />
+              <Journey id="resume" />
             </>
           )}
         </div>
