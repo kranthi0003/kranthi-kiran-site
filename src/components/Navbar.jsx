@@ -13,8 +13,8 @@ export default function Navbar({ theme = 'dark', toggleTheme, active = 'home', n
         <div className="nav-right">
           <a href="#top" className={active === 'home' ? 'active' : ''} aria-current={active === 'home' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/"); }}>Home</a>
           <a href="#resume" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/#resume"); }}>Journey</a>
-          <a href="/photography" onClick={e => { e.preventDefault(); navigate("/photography"); }}>Photography</a>
-          <a href="/cryto" onClick={e => { e.preventDefault(); navigate("/cryto"); }}>Cryto</a>
+          <a href="/photography" className={active === 'photography' ? 'active' : ''} aria-current={active === 'photography' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/photography"); }}>Photography</a>
+          <a href="/cryto" className={active === 'cryto' ? 'active' : ''} aria-current={active === 'cryto' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/cryto"); }}>Cryto</a>
           <button id="themeToggle" className="theme-btn" aria-label={ariaLabel} aria-pressed={ariaPressed} onClick={toggleTheme}>
             <i className={`fa-solid ${iconClass}`} aria-hidden="true"></i>
           </button>

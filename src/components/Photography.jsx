@@ -34,8 +34,8 @@ export default function Photography(){
     <>
     <div className="photography-page" style={{ padding: 24, minHeight: '80vh' }}>
       <h1 style={{ fontSize: 48, marginBottom: 12 }}>Photography</h1>
-      <p style={{ fontSize: 18, color: '#bbb', marginBottom: 24, maxWidth: 600 }}>
-        A selection of my work — click any image to view in detail. Filter by tag to explore specific themes.
+      <p style={{ fontSize: 16, color: '#999', marginBottom: 24 }}>
+        Click to view. Filter by tag.
       </p>
 
       {/* Tag filter */}

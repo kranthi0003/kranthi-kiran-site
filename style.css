@@ -247,6 +247,20 @@ body.light .header-divider {
   padding: calc(var(--nav-height,64px) + 36px) var(--container-padding) 80px var(--container-padding);
   position: relative;
   z-index: 5;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,122,61,0.08), transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(34,193,255,0.06), transparent 50%);
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+
+body.light .container {
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,122,61,0.04), transparent 40%),
+    radial-gradient(circle at 80% 50%, rgba(34,193,255,0.03), transparent 50%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.05);
 }
 
 .hero-text{ text-align:left }
@@ -267,6 +281,11 @@ body.light .header-divider {
   padding-top: 10px;
   padding-bottom: 10px;
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  border-radius: 16px;
+  padding: 60px 48px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.03);
 }
 
 /* ambient glow */
@@ -376,6 +395,12 @@ body.light .hero-text h1 {
 
 body.light .image-frame {
   box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+body.light .hero {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(240,245,250,0.3));
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 .image-frame img {

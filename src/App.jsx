@@ -41,8 +41,8 @@ export default function App() {
     setRoute(path)
     // Scroll behavior based on path
     setTimeout(() => {
-      if (path === "/" || path === "") {
-        // Scroll to top for home
+      if (path === "/" || path === "" || path === "/photography" || path === "/cryto") {
+        // Scroll to top for home, photography, and cryto
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (path.includes('#')) {
         // Scroll to hash element
@@ -63,8 +63,10 @@ export default function App() {
 
   // Update active section based on route
   useEffect(() => {
-    if (route === '/cryto' || route === '/photography') {
-      setActiveSection(null)
+    if (route === '/cryto') {
+      setActiveSection('cryto')
+    } else if (route === '/photography') {
+      setActiveSection('photography')
     } else if (route.includes('#resume')) {
       setActiveSection('journey')
     } else {
