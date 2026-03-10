@@ -9,12 +9,14 @@ export default function Navbar({ theme = 'dark', toggleTheme, active = 'home', n
   return (
     <nav className="navbar" role="navigation" aria-label="Main navigation">
       <div className="nav-inner">
-  <div className="nav-left"><a href="#top">Kranthi Kiran</a></div>
+        <div className="nav-left">
+          <div className="nav-logo-text">KK</div>
+          <a href="/">Kranthi Kiran</a>
+        </div>
         <div className="nav-right">
-          <a href="#top" className={active === 'home' ? 'active' : ''} aria-current={active === 'home' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/"); }}>Home</a>
-          <a href="#resume" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/#resume"); }}>Journey</a>
-          <a href="/photography" className={active === 'photography' ? 'active' : ''} aria-current={active === 'photography' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/photography"); }}>Photography</a>
-          <a href="/cryto" className={active === 'cryto' ? 'active' : ''} aria-current={active === 'cryto' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/cryto"); }}>Cryto</a>
+          <a href="/" className={active === 'home' ? 'active' : ''} aria-current={active === 'home' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/"); }}>Home</a>
+          <a href="/journey" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/journey"); }}>Career</a>
+          <a href="/projects" className={active === 'projects' ? 'active' : ''} aria-current={active === 'projects' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/projects"); }}>Projects</a>
           <button id="themeToggle" className="theme-btn" aria-label={ariaLabel} aria-pressed={ariaPressed} onClick={toggleTheme}>
             <i className={`fa-solid ${iconClass}`} aria-hidden="true"></i>
           </button>

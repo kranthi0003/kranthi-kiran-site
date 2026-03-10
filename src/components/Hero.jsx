@@ -5,15 +5,22 @@ export default function Hero(){
   return (
   <section id="top" className="hero">
       <div className="hero-text">
-        <h1>Hey, I’m Kranthi.</h1>
-        <p className="tagline">Backend engineering. Distributed systems. Reliability at scale.</p>
-        <p>Software engineer with 4+ years of experience across cloud platforms, distributed databases, and production-critical systems.</p>
-        <p>I focus on debugging complex issues, improving performance, and building systems that scale reliably.</p>
+        <h1>Hey, I'm Kranthi.</h1>
+        <p className="tagline">Building scalable systems & solving complex problems</p>
+        <p>Backend engineer with 4+ years of experience building production-grade systems at Amazon, Couchbase, and GitHub.</p>
+        <p>I specialize in distributed systems, performance optimization, and creating reliable infrastructure that handles scale.</p>
       </div>
 
       <div className="hero-image">
         <div className="image-frame">
           <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" loading="lazy" />
+        </div>
+      </div>
+
+      <div className="scroll-indicator">
+        <div className="scroll-icon">
+          <div className="scroll-wheel"></div>
+          <p>Scroll to explore</p>
         </div>
       </div>
     </section>

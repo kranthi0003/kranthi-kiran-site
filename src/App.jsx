@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import Journey from './components/Journey'
+import FeaturedProjects from './components/FeaturedProjects'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import Cryto from './components/Cryto'
 import Photography from './components/Photography'
+import News from './components/News'
+import F1 from './components/F1'
+import Fashion from './components/Shopping'
+import Travel from './components/Travel'
+import Cooking from './components/Cooking'
+import Cricket from './components/Cricket'
+import Gaming from './components/Gaming'
+import Music from './components/Music'
+import Journey from './components/Journey'
+import Projects from './components/Projects'
 
 export default function App() {
   const [theme, setTheme] = useState('dark')
@@ -67,8 +77,26 @@ export default function App() {
       setActiveSection('cryto')
     } else if (route === '/photography') {
       setActiveSection('photography')
-    } else if (route.includes('#resume')) {
+    } else if (route === '/news') {
+      setActiveSection('news')
+    } else if (route === '/f1') {
+      setActiveSection('f1')
+    } else if (route === '/fashion') {
+      setActiveSection('fashion')
+    } else if (route === '/travel') {
+      setActiveSection('travel')
+    } else if (route === '/cooking') {
+      setActiveSection('cooking')
+    } else if (route === '/cricket') {
+      setActiveSection('cricket')
+    } else if (route === '/gaming') {
+      setActiveSection('gaming')
+    } else if (route === '/music') {
+      setActiveSection('music')
+    } else if (route === '/journey') {
       setActiveSection('journey')
+    } else if (route === '/projects') {
+      setActiveSection('projects')
     } else {
       setActiveSection('home')
     }
@@ -77,28 +105,19 @@ export default function App() {
   // Listen for scroll to update active section
   useEffect(() => {
     const handleScroll = () => {
-      // Only track scroll on home page (when route is "/" or "")
-      if (route !== "/" && route !== "") return
-      
-      const resumeSection = document.getElementById("resume")
-      
-      if (!resumeSection) return
-      
-      const resumeRect = resumeSection.getBoundingClientRect()
-      
-      // If resume section is more than 30% visible from top, highlight Journey
-      if (resumeRect.top < window.innerHeight * 0.7) {
-        setActiveSection("journey")
-      } else {
-        setActiveSection("home")
+      // Only track scroll on home page
+      if (route !== "/" && route !== "") {
+        return
       }
+      // Home page doesn't need scroll tracking anymore
+      setActiveSection("home")
     }
     
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [route])
 
-  // intentionally single-page: Hero and Journey both render; navbar links use anchors (#resume)
+  // Single-page app: Hero and Featured Projects on home; other sections including Journey are dedicated pages
 
   const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light')
 
@@ -112,10 +131,30 @@ export default function App() {
             <Cryto />
           ) : route === "/photography" ? (
             <Photography />
+          ) : route === "/news" ? (
+            <News />
+          ) : route === "/f1" ? (
+            <F1 />
+          ) : route === "/fashion" ? (
+            <Fashion />
+          ) : route === "/travel" ? (
+            <Travel />
+          ) : route === "/cooking" ? (
+            <Cooking />
+          ) : route === "/cricket" ? (
+            <Cricket />
+          ) : route === "/gaming" ? (
+            <Gaming />
+          ) : route === "/music" ? (
+            <Music />
+          ) : route === "/journey" ? (
+            <Journey />
+          ) : route === "/projects" ? (
+            <Projects />
           ) : (
             <>
               <Hero id="top" />
-              <Journey id="resume" />
+              <FeaturedProjects navigate={navigate} />
             </>
           )}
         </div>

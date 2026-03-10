@@ -17,16 +17,32 @@ export default function Journey(){
   const containerRef = useRef(null)
 
   useEffect(() => {
+    // Scroll to top when journey page loads
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [])
+
+  useEffect(() => {
     const nodes = containerRef.current ? containerRef.current.querySelectorAll('.journey-node') : []
+    const arrows = containerRef.current ? containerRef.current.querySelectorAll('.flow-arrow') : []
+    
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('in-view')
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view')
+          // Trigger next arrow animation
+          const nextArrow = entry.target.nextElementSibling
+          if (nextArrow && nextArrow.classList.contains('flow-arrow')) {
+            setTimeout(() => nextArrow.classList.add('active'), 400)
+          }
+        }
       })
     }, { threshold: 0.15 })
+    
     nodes.forEach((n, i) => {
-      n.style.transitionDelay = `${i * 120}ms`
+      n.style.transitionDelay = `${i * 150}ms`
       io.observe(n)
     })
+    
     return () => io.disconnect()
   }, [])
 
@@ -34,13 +50,13 @@ export default function Journey(){
     {src: awsLogo, title:'SE – 1', company:'Amazon', years:'2021 – 2024'},
     {src: growwLogo, title:'PSE – 2', company:'Groww', years:'2025'},
     {src: couchbaseLogo, title:'TSE – 2', company:'Couchbase', years:'2025 – 2026'},
-    {src: githubLogo, title:'TSE – 3', company:'GitHub', years:'2026 – Present', current:true}
+    {src: githubLogo, title:'TSE – 3', company:'GitHub', years:'Present', current:true}
   ]
 
   return (
     <section id="resume" className="resume-section" aria-labelledby="journey-heading">
       <div className="section-header">
-        <h2 id="journey-heading">Journey</h2>
+        <h2 id="journey-heading">Timeline</h2>
         <a href="assets/Kranthi_Resume.pdf" className="resume-btn" download aria-label="Download Resume">Download Resume</a>
       </div>
 
