@@ -4,10 +4,13 @@ import Hero from './components/Hero'
 import Journey from './components/Journey'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
+import Cryto from './components/Cryto'
+import Photography from './components/Photography'
 
-export default function App(){
+export default function App() {
   const [theme, setTheme] = useState('dark')
   const [activeSection, setActiveSection] = useState('home')
+  const [route, setRoute] = useState(window.location.pathname)
   // initialize theme from localStorage or system preference
   useEffect(() => {
     const stored = localStorage.getItem('theme')
@@ -19,6 +22,18 @@ export default function App(){
       setTheme('dark')
     }
   }, [])
+
+  // Listen for navigation
+  useEffect(() => {
+    const handler = () => setRoute(window.location.pathname)
+    window.addEventListener("popstate", handler)
+    return () => window.removeEventListener("popstate", handler)
+  }, [])
+
+  const navigate = (path) => {
+    window.history.pushState({}, "", path)
+    setRoute(path)
+  }
 
   useEffect(() => {
     if (theme === 'light') document.body.classList.add('light')
@@ -32,7 +47,7 @@ export default function App(){
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const id = entry.target.id
-      if (id === 'top' || id === '') setActiveSection('home')
+          if (id === 'top' || id === '') setActiveSection('home')
           else if (id === 'resume') setActiveSection('journey')
         }
       })
@@ -52,11 +67,19 @@ export default function App(){
   return (
     <div>
       <a className="skip-link" href="#main">Skip to content</a>
-      <Navbar theme={theme} toggleTheme={toggleTheme} active={activeSection} />
+      <Navbar theme={theme} toggleTheme={toggleTheme} active={activeSection} navigate={navigate} />
       <main id="main">
         <div className="container">
-          <Hero />
-          <Journey />
+          {route === "/cryto" ? (
+            <Cryto />
+          ) : route === "/photography" ? (
+            <Photography />
+          ) : (
+            <>
+              <Hero />
+              <Journey />
+            </>
+          )}
         </div>
       </main>
       <BackToTop />
