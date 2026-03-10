@@ -74,6 +74,30 @@ export default function App() {
     }
   }, [route])
 
+  // Listen for scroll to update active section
+  useEffect(() => {
+    const handleScroll = () => {
+      // Only track scroll on home page (when route is "/" or "")
+      if (route !== "/" && route !== "") return
+      
+      const resumeSection = document.getElementById("resume")
+      
+      if (!resumeSection) return
+      
+      const resumeRect = resumeSection.getBoundingClientRect()
+      
+      // If resume section is more than 30% visible from top, highlight Journey
+      if (resumeRect.top < window.innerHeight * 0.7) {
+        setActiveSection("journey")
+      } else {
+        setActiveSection("home")
+      }
+    }
+    
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [route])
+
   // intentionally single-page: Hero and Journey both render; navbar links use anchors (#resume)
 
   const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light')
