@@ -31,34 +31,36 @@ export default function FeaturedPreview({ navigate }) {
         <h2>What I've Been Building</h2>
       </div>
       
-      <div className="featured-preview-grid">
-        {featured.map((project) => (
-          <div
-            key={project.id}
-            className={`featured-preview-card featured-preview-card--${project.id}`}
-            onClick={() => navigate(project.path)}
-            role="button"
-            tabIndex={0}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                navigate(project.path)
-              }
-            }}
-          >
-            <span className="preview-emoji">{project.emoji}</span>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-            <span className="preview-arrow">→</span>
-          </div>
-        ))}
-      </div>
+      <div className="featured-preview-wrapper">
+        <div className="featured-preview-grid">
+          {featured.map((project) => (
+            <div
+              key={project.id}
+              className={`featured-preview-card featured-preview-card--${project.id}`}
+              onClick={() => navigate(project.path)}
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  navigate(project.path)
+                }
+              }}
+            >
+              <span className="preview-emoji">{project.emoji}</span>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+              <span className="preview-arrow">→</span>
+            </div>
+          ))}
+        </div>
 
-      <button 
-        className="view-all-btn"
-        onClick={() => navigate('/projects')}
-      >
-        View All Projects <i className="fa-solid fa-arrow-right"></i>
-      </button>
+        <button 
+          className="view-all-btn"
+          onClick={() => navigate('/projects')}
+        >
+          View All <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
     </section>
   )
 }

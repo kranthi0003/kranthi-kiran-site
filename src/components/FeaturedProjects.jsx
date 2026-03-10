@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-export default function Projects({ navigate }) {
+export default function FeaturedProjects({ navigate }) {
   const projects = [
     {
       id: 'photography',
@@ -98,16 +98,10 @@ export default function Projects({ navigate }) {
     navigate(path)
   }
 
-  useEffect(() => {
-    // Scroll to top when projects page loads
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }, [])
-
   return (
     <section className="featured-section">
       <div className="section-header">
         <h2>Projects</h2>
-        <span className="title-underline"></span>
       </div>
 
       <div className="projects-grid">

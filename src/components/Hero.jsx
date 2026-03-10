@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import profile from '../../assets/profile.png'
-import SkillsModal from './SkillsModal'
+import { Suspense } from 'react'
+const SkillsModal = React.lazy(() => import('./SkillsModal'));
 
 export default function Hero(){
   const [showSkills, setShowSkills] = useState(false)
@@ -38,7 +39,11 @@ export default function Hero(){
       </div>
     </section>
 
-    {showSkills && <SkillsModal onClose={() => setShowSkills(false)} />}
+    {showSkills && (
+      <Suspense fallback={<div style={{textAlign:'center',padding:'2em'}}>Loading skills...</div>}>
+        <SkillsModal onClose={() => setShowSkills(false)} />
+      </Suspense>
+    )}
   </>
   )
 }

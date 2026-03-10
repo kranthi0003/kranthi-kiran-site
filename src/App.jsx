@@ -4,7 +4,6 @@ import Hero from './components/Hero'
 import CompanyLogos from './components/CompanyLogos'
 import QuickStats from './components/QuickStats'
 import FeaturedPreview from './components/FeaturedPreview'
-import ConnectSection from './components/ConnectSection'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
 import Cryto from './components/Cryto'
@@ -21,20 +20,8 @@ import Journey from './components/Journey'
 import Projects from './components/Projects'
 
 export default function App() {
-  const [theme, setTheme] = useState('dark')
   const [activeSection, setActiveSection] = useState('home')
   const [route, setRoute] = useState(window.location.pathname + window.location.hash)
-  // initialize theme from localStorage or system preference
-  useEffect(() => {
-    const stored = localStorage.getItem('theme')
-    if (stored) {
-      setTheme(stored)
-    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      setTheme('light')
-    } else {
-      setTheme('dark')
-    }
-  }, [])
 
   // Listen for navigation (both popstate and hash changes)
   useEffect(() => {
@@ -67,12 +54,6 @@ export default function App() {
       }
     }, 0)
   }
-
-  useEffect(() => {
-    if (theme === 'light') document.body.classList.add('light')
-    else document.body.classList.remove('light')
-    localStorage.setItem('theme', theme)
-  }, [theme])
 
   // Update active section based on route
   useEffect(() => {
@@ -122,12 +103,10 @@ export default function App() {
 
   // Single-page app: Hero and Featured Projects on home; other sections including Journey are dedicated pages
 
-  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light')
-
   return (
     <div>
       <a className="skip-link" href="#main">Skip to content</a>
-      <Navbar theme={theme} toggleTheme={toggleTheme} active={activeSection} navigate={navigate} />
+      <Navbar active={activeSection} navigate={navigate} />
       <main id="main">
         <div className="container">
           {route === "/cryto" ? (
@@ -160,7 +139,6 @@ export default function App() {
               <CompanyLogos />
               <QuickStats />
               <FeaturedPreview navigate={navigate} />
-              <ConnectSection />
             </>
           )}
         </div>
