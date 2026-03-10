@@ -92,7 +92,6 @@ export default function FeaturedProjects({ navigate }) {
     <section className="featured-section">
       <div className="section-header">
         <h2>Featured</h2>
-        <p>Explore my interests and creations</p>
       </div>
 
       <div className="projects-grid">
