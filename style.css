@@ -40,7 +40,8 @@
 
   --transition-fast: 160ms;
   --transition-mid: 260ms;
-  /* Global typography control for "same style" across the site */
+
+  /* Global typography control */
   --global-font: 'Exo 2', 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --global-letter-spacing: 0.6px;
 }
@@ -241,7 +242,7 @@ h3, h4, h5 {
 }
 
 .nav-left {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.2px;
   display: flex;
@@ -254,68 +255,65 @@ h3, h4, h5 {
   font-weight:800;
   letter-spacing: -0.5px;
   transition: opacity 240ms ease;
+  font-size: 18px;
 }
 .nav-left a:hover {
   opacity: 0.8;
 }
 
-/* Stylized text logo */
+/* Stylized text logo - minimal container, SVG circle is the badge */
 .nav-logo-text {
-  width: 42px;
-  height: 42px;
-  display: flex;
+  width: auto;
+  height: auto;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(100, 180, 220, 0.7) 0%, rgba(140, 120, 200, 0.6) 100%);
-  color: rgba(255,255,255,0.95);
-  font-weight: 900;
-  font-size: 17px;
-  letter-spacing: -1.2px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 1px rgba(255,255,255,0.12) inset;
-  border: 1.5px solid rgba(255,255,255,0.12);
-  transition: all 320ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: transparent !important;
+  color: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: normal;
+  box-shadow: none !important;
+  border: none !important;
+  transition: transform 200ms ease;
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(8px);
+  overflow: visible;
+  text-transform: none;
 }
+.nav-logo-text::before,
+.nav-logo-text::after { display: none !important; }
+.nav-logo-text:hover { transform: translateY(-2px) scale(1.02); }
+.nav-logo-text .logo-inner { display: inline-flex; align-items: center; justify-content: center; }
 
-.nav-logo-text::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.12) 100%);
-  opacity: 0;
-  transition: opacity 320ms ease;
-  pointer-events: none;
+/* KK SVG logo styling */
+.kk-logo {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 220ms ease, filter 220ms ease, box-shadow 220ms ease;
 }
+.nav-left .nav-logo-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-text:hover .kk-logo { transform: translateY(-3px) scale(1.03); filter: drop-shadow(0 8px 18px rgba(0,212,255,0.06)); }
+.nav-logo-text .sr-only { position: absolute; left: -9999px; }
 
-.nav-logo-text::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15), transparent 50%);
-  opacity: 0;
-  transition: opacity 320ms ease;
-  pointer-events: none;
+/* subtle continuous pulse for the accent dot */
+@keyframes logo-pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.85; }
+  100% { transform: scale(1); opacity: 1; }
 }
-
-.nav-logo-text:hover {
-  transform: translateY(-3px) scale(1.08);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255,255,255,0.15) inset;
-  border-color: rgba(255,255,255,0.2);
-}
-
-.nav-logo-text:hover::before,
-.nav-logo-text:hover::after {
-  opacity: 1;
-}
+.nav-logo-text::after { animation: logo-pulse 2.8s ease-in-out infinite; }
 
 body.light .nav-logo-text {
-  background: linear-gradient(135deg, rgba(100, 180, 220, 0.8) 0%, rgba(140, 120, 200, 0.7) 100%);
-  box-shadow: 0 6px 18px rgba(100, 180, 220, 0.2), 0 0 1px rgba(255,255,255,0.1) inset;
-  border-color: rgba(255,255,255,0.15);
+  background: linear-gradient(135deg, rgba(140,120,200,0.12) 0%, rgba(0,212,255,0.04) 60%);
+  box-shadow: 0 8px 26px rgba(140,120,200,0.08), 0 0 10px rgba(255,255,255,0.04) inset;
+  border-color: rgba(255,255,255,0.1);
 }
 
 /* common button styles */
@@ -359,6 +357,7 @@ body.light .nav-logo-text {
   transition: color 0.18s ease, opacity 0.18s ease;
   padding: 6px 10px;
   border-radius: 8px;
+  font-size: 17px;
 }
 
 .nav-right a:hover {
