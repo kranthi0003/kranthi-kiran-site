@@ -1838,13 +1838,17 @@ body.light .contact-form textarea { background: #fff; border-color: rgba(0,0,0,0
 }
 
 .featured-section.theme-gaming::before {
-  /* subtle ambient glow */
+  /* neural network themed SVG overlay - more visible */
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(closest-side at 10% 20%, rgba(99,102,241,0.06), transparent 25%), radial-gradient(closest-side at 85% 80%, rgba(6,214,255,0.03), transparent 30%);
   pointer-events: none;
-  z-index: 0;
+  z-index: 1;
+  background-image: url('data:image/svg+xml;utf8,<svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg"><g stroke="%2300d4ff" stroke-width="4" opacity="0.45"><circle cx="200" cy="300" r="60"/><circle cx="1000" cy="300" r="60"/><circle cx="600" cy="100" r="40"/><circle cx="600" cy="500" r="40"/><line x1="260" y1="300" x2="560" y2="100"/><line x1="260" y1="300" x2="560" y2="500"/><line x1="940" y1="300" x2="640" y2="100"/><line x1="940" y1="300" x2="640" y2="500"/><line x1="600" y1="140" x2="600" y2="460"/><line x1="200" y1="300" x2="1000" y2="300"/></g><g stroke="%238b5cf6" stroke-width="4" opacity="0.35"><circle cx="600" cy="300" r="120"/><line x1="480" y1="300" x2="720" y2="300"/><line x1="600" y1="180" x2="600" y2="420"/></g></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  mix-blend-mode: lighten;
 }
 
 .featured-section.theme-gaming .section-header h2 {

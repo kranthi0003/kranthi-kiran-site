@@ -5,38 +5,87 @@ export default function Gaming() {
 
   const gameCategories = [
     {
-      id: 'guessing',
+      id: 'guessing-games',
       title: 'Guessing Games',
       emoji: '🎯',
       description: 'Test your intuition and guessing skills',
+      accentColor: 'accent-2',
+      implemented: true,
+      status: 'wip'
+    },
+    {
+      id: 'brain-teasers',
+      title: 'Brain Teasers',
+      emoji: '🧠',
+      description: 'Challenge your mind with tricky puzzles',
+      accentColor: 'accent-1',
+      implemented: false
+    },
+    {
+      id: 'strategy-games',
+      title: 'Strategy Games',
+      emoji: '♟️',
+      description: 'Plan and execute winning tactics',
+      accentColor: 'accent-2',
+      implemented: false
+    },
+    {
+      id: 'math-playground',
+      title: 'Math Playground',
+      emoji: '➗',
+      description: 'Fun math challenges and logic problems',
       accentColor: 'accent-1',
       implemented: false
     },
     {
       id: 'probability',
-      title: 'Probability Games',
+      title: 'Probability',
       emoji: '🎲',
       description: 'Understand odds and probability',
-      accentColor: 'accent-2',
-      implemented: false
-    },
-    {
-      id: 'chess',
-      title: 'Chess Games',
-      emoji: '♟️',
-      description: 'Classic strategy and chess puzzles',
       accentColor: 'accent-1',
       implemented: false
     },
     {
-      id: 'stock',
-      title: 'Stock Games',
-      emoji: '📈',
-      description: 'Learn trading and market mechanics',
+      id: 'reflex-speed',
+      title: 'Reflex & Speed',
+      emoji: '⚡',
+      description: 'Test your speed and reaction time',
+      accentColor: 'accent-2',
+      implemented: false
+    },
+    {
+      id: 'memory-games',
+      title: 'Memory Games',
+      emoji: '🧩',
+      description: 'Improve your recall and memory skills',
+      accentColor: 'accent-1',
+      implemented: false
+    },
+    {
+      id: 'funny-games',
+      title: 'Funny Games',
+      emoji: '😂',
+      description: 'Enjoy hilarious and light-hearted games',
+      accentColor: 'accent-2',
+      implemented: false
+    },
+    {
+      id: 'simulation-lab',
+      title: 'Simulation Lab',
+      emoji: '🕹️',
+      description: 'Experience virtual worlds and scenarios',
+      accentColor: 'accent-1',
+      implemented: false
+    },
+    {
+      id: 'casual-arcade',
+      title: 'Casual Arcade',
+      emoji: '🎮',
+      description: 'Relax with easy and fun arcade games',
       accentColor: 'accent-2',
       implemented: false
     }
-  ]
+  ];
 
   const renderCategoryContent = () => {
     const category = gameCategories.find(c => c.id === selectedCategory)
@@ -62,62 +111,62 @@ export default function Gaming() {
           <p>Build your games here and they will appear in this section.</p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="feature-page">
-      <div className="feature-header">
-        <i className="fa-solid fa-gamepad"></i>
-        <h1>Gaming</h1>
-        <p>Play interactive games and sharpen your skills</p>
+    <section className="featured-section theme-gaming">
+      <div className="section-header">
+        <h2>Gaming</h2>
+        <span className="title-underline"></span>
       </div>
-
-      <div className="feature-content">
+      <div className="projects-grid">
         {!selectedCategory ? (
-          <div className="projects-grid">
-            {gameCategories.map((category) => (
-              <div
-                key={category.id}
-                className={`project-card project-card--${category.id} ${category.implemented ? 'implemented' : 'not-implemented'}`}
-                onClick={() => category.implemented && setSelectedCategory(category.id)}
-                role="button"
-                tabIndex={category.implemented ? "0" : "-1"}
-                onKeyPress={(e) => {
-                  if ((e.key === 'Enter' || e.key === ' ') && category.implemented) {
-                    setSelectedCategory(category.id)
-                  }
-                }}
-                style={!category.implemented ? { opacity: 0.6, cursor: 'not-allowed' } : {}}
-              >
-                <div className="status-indicator">
-                  {category.implemented ? (
-                    <span className="status-badge status-implemented">
-                      <i className="fa-solid fa-check"></i> Implemented
-                    </span>
-                  ) : (
-                    <span className="status-badge status-not-implemented">
-                      <i className="fa-solid fa-circle-xmark"></i> Coming Soon
-                    </span>
-                  )}
-                </div>
-                <div className="card-content">
-                  <div className="card-emoji">{category.emoji}</div>
-                  <h3>{category.title}</h3>
-                  <p className="card-description">{category.description}</p>
-                </div>
-                {category.implemented && (
-                  <div className={`card-arrow ${category.accentColor === 'accent-1' ? 'accent-1' : 'accent-2'}`}>
-                    <i className="fa-solid fa-arrow-right"></i>
-                  </div>
+          gameCategories.map((category) => (
+            <div
+              key={category.id}
+              className={`project-card project-card--${category.id} ${category.implemented ? 'implemented' : 'not-implemented'}`}
+              onClick={() => category.implemented && setSelectedCategory(category.id)}
+              role="button"
+              tabIndex={category.implemented ? "0" : "-1"}
+              onKeyPress={(e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && category.implemented) {
+                  setSelectedCategory(category.id)
+                }
+              }}
+              style={!category.implemented ? { opacity: 0.6, cursor: 'not-allowed' } : {}}
+            >
+              <div className="status-indicator">
+                {category.implemented && category.status === 'wip' ? (
+                  <span className="status-badge status-wip">
+                    <i className="fa-solid fa-spinner" style={{color:'#FFD600'}}></i> <span style={{color:'#FFD600'}}>WIP</span>
+                  </span>
+                ) : category.implemented ? (
+                  <span className="status-badge status-implemented">
+                    <i className="fa-solid fa-check"></i> Implemented
+                  </span>
+                ) : (
+                  <span className="status-badge status-not-implemented">
+                    <i className="fa-solid fa-circle-xmark"></i> Coming Soon
+                  </span>
                 )}
               </div>
-            ))}
-          </div>
+              <div className="card-content">
+                <div className="card-emoji">{category.emoji}</div>
+                <h3>{category.title}</h3>
+                <p className="card-description">{category.description}</p>
+              </div>
+              {category.implemented && (
+                <div className={`card-arrow ${category.accentColor === 'accent-1' ? 'accent-1' : 'accent-2'}`}>
+                  <i className="fa-solid fa-arrow-right"></i>
+                </div>
+              )}
+            </div>
+          ))
         ) : (
           renderCategoryContent()
         )}
       </div>
-    </div>
-  )
+    </section>
+  );
 }
