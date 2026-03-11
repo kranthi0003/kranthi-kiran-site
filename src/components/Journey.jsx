@@ -5,8 +5,8 @@ import couchbaseLogo from '../../assets/couchbase.png'
 import githubLogo from '../../assets/github.png'
 
 const Node = ({src, title, company, years, current, style}) => (
-  <div className={`journey-node ${current? 'current':''}`} style={style}>
-    <img src={src} className="logo" alt={`${company} logo`} loading="lazy" />
+  <div className={`journey-node ${current ? 'current' : ''}`} style={style}>
+    <img src={src} className="logo" alt={`${company} logo`} />
     <h3>{title}</h3>
     <p>{company}</p>
     <span>{years}</span>

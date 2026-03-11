@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function QuickStats() {
   const skills = [
-    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+  { name: 'GitHub', icon: 'https://cdn.simpleicons.org/github/white' },
     { name: 'GitHub Actions', icon: 'https://cdn.simpleicons.org/githubactions/2088FF' },
     { name: 'GitHub Copilot', icon: 'https://cdn.simpleicons.org/githubcopilot/white' },
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
@@ -32,7 +32,7 @@ export default function QuickStats() {
         <div className="skills-track">
           {[...skills, ...skills].map((skill, index) => (
             <div key={index} className="skill-item">
-              <img src={skill.icon} alt={skill.name} className="skill-icon" loading="lazy" />
+              <img src={skill.icon} alt={skill.name} className="skill-icon" />
               <span className="skill-name">{skill.name}</span>
             </div>
           ))}

@@ -34,7 +34,7 @@ export default function Hero(){
 
       <div className="hero-image">
         <div className="image-frame">
-          <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" loading="lazy" />
+          <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" />
         </div>
       </div>
     </section>

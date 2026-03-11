@@ -13,7 +13,7 @@ export default function CompanyLogos() {
   // Customer logos using devicons and brand CDNs
   const customers = [
     { name: 'Netflix', logo: 'https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/netflix.svg' },
-    { name: 'Apple', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg' },
+  { name: 'Apple', logo: 'https://cdn.simpleicons.org/apple/white' },
     { name: 'Google', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg' },
     { name: 'Microsoft', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
     { name: 'Meta', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg' },
@@ -97,7 +97,7 @@ export default function CompanyLogos() {
           <div className="logos-container">
             {companies.map((company) => (
               <div key={company.name} className="logo-item">
-                <img src={company.logo} alt={company.name} loading="lazy" />
+                <img src={company.logo} alt={company.name} />
               </div>
             ))}
           </div>
@@ -136,7 +136,7 @@ export default function CompanyLogos() {
                 src={customer.logo} 
                 alt={customer.name} 
                 style={customer.size ? { height: `${customer.size}px` } : {}}
-                loading="lazy"
+                
               />
             </div>
           ))}
