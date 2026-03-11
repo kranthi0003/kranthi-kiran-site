@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 export default function Projects({ navigate }) {
   const projects = [
@@ -30,6 +30,15 @@ export default function Projects({ navigate }) {
       status: 'in-progress'
     },
     {
+      id: 'ai',
+      title: 'AI',
+      emoji: '🤖',
+      description: 'Artificial Intelligence',
+      color: 'accent-1',
+      path: '/ai',
+      status: 'coming'
+    },
+    {
       id: 'news',
       title: 'News',
       emoji: '📰',
@@ -45,15 +54,6 @@ export default function Projects({ navigate }) {
       description: 'Racing passion',
       color: 'accent-2',
       path: '/f1',
-      status: 'coming'
-    },
-    {
-      id: 'fashion',
-      title: 'Fashion',
-      emoji: '👔',
-      description: 'Style trends',
-      color: 'accent-1',
-      path: '/fashion',
       status: 'coming'
     },
     {
@@ -98,13 +98,41 @@ export default function Projects({ navigate }) {
     navigate(path)
   }
 
+  const sectionRef = useRef(null)
+
   useEffect(() => {
     // Scroll to top when projects page loads
     window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    // Parallax: update CSS var on scroll for subtle movement
+    const prefersReduced = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReduced) return
+
+    const el = sectionRef.current
+    if (!el) return
+
+    let ticking = false
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const rect = el.getBoundingClientRect()
+          // use top position to compute small parallax offset
+          el.style.setProperty('--parallax', `${rect.top}`)
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    // initialize
+    onScroll()
+
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <section className="featured-section">
+  <section ref={sectionRef} className="featured-section theme-gaming">
       <div className="section-header">
         <h2>Projects</h2>
         <span className="title-underline"></span>
@@ -137,7 +165,7 @@ export default function Projects({ navigate }) {
                 </span>
               ) : inProgress ? (
                 <span className="status-badge status-progress">
-                  <i className="fa-solid fa-spinner"></i> In Progress
+                  <i className="fa-solid fa-spinner"></i> WIP
                 </span>
               ) : (
                 <span className="status-badge status-not-implemented">

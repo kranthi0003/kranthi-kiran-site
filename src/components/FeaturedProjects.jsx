@@ -131,7 +131,7 @@ export default function FeaturedProjects({ navigate }) {
                 </span>
               ) : inProgress ? (
                 <span className="status-badge status-progress">
-                  <i className="fa-solid fa-spinner"></i> In Progress
+                  <i className="fa-solid fa-spinner"></i> WIP
                 </span>
               ) : (
                 <span className="status-badge status-not-implemented">
