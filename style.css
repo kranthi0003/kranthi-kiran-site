@@ -344,7 +344,7 @@ body.light .nav-logo-text {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 14px; /* tightened spacing between nav items */
 }
 
 .nav-right a{ font-weight:600 }
@@ -355,7 +355,7 @@ body.light .nav-logo-text {
   opacity: 0.9;
   font-weight: 600;
   transition: color 0.18s ease, opacity 0.18s ease;
-  padding: 6px 10px;
+  padding: 6px 8px; /* slightly narrower hit area to bring links closer */
   border-radius: 8px;
   font-size: 17px;
 }
@@ -384,6 +384,71 @@ body.light .nav-logo-text {
 }
 .theme-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.46); }
 
+/* Music player toggle in navbar */
+.music-player { display: inline-flex; align-items: center; }
+
+/* unified pill */
+.music-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(10,10,12,0.02));
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--muted);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  z-index: 2;
+}
+.music-pill:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.45); }
+.music-pill.playing { background: linear-gradient(90deg, rgba(255,107,53,0.14), rgba(0,212,255,0.06)); color: white; box-shadow: 0 12px 34px rgba(0,0,0,0.6), 0 0 20px rgba(255,107,53,0.06), 0 0 18px rgba(0,212,255,0.06); }
+
+.music-pill .pill-icon { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:8px; background: rgba(0,0,0,0.25); color: white }
+.music-pill .pill-label { font-size:13px; font-weight:600; color: inherit }
+.music-pill .pill-viz { display:inline-flex; align-items:center; gap:6px }
+/* static dots by default; animate only when playing */
+.music-pill .pill-viz i { width:4px; height:4px; background: rgba(255,255,255,0.85); border-radius:50%; animation: none; transition: transform 160ms ease, opacity 140ms ease }
+.music-pill.playing .pill-viz i { animation: viz-dot var(--d) linear infinite }
+
+@keyframes viz-dot { 0% { transform: translateY(0); opacity: 0.6 } 50% { transform: translateY(-6px); opacity: 1 } 100% { transform: translateY(0); opacity: 0.6 } }
+
+.music-pill.paused .pill-viz { opacity: 0.86; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .music-visualizer i { animation: none !important; }
+
+  /* music controls: title and skip buttons */
+  .music-controls { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px }
+  .music-title { font-size: 13px; color: var(--muted); max-width: 180px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+  .music-skip { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--muted); padding: 6px 8px; border-radius: 8px; cursor: pointer }
+  .music-skip:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.36); }
+  .music-player { display: inline-flex; align-items: center; gap: 8px }
+
+  /* pill layout for navbar music player */
+  .music-player.pill.simple {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .music-player.pill.simple .music-toggle.compact { 
+    background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+    transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+  }
+  .music-player.pill.simple .music-toggle.compact svg { color: white }
+  .music-player.pill.simple .music-toggle.compact .music-visualizer { display: inline-flex; align-items: center; gap: 4px }
+  .music-player.pill.simple .music-toggle:not(.playing) .music-visualizer { opacity: 0.25 }
+  .music-player.pill.simple .music-toggle:hover { transform: translateY(-3px) }
+}
+
 .header-divider {
   height: 1px;
   background: rgba(255,255,255,0.08);
@@ -392,6 +457,167 @@ body.light .nav-logo-text {
 body.light .header-divider {
   background: rgba(0,0,0,0.08);
 }
+
+/* Stronger, site-matching music button styles (overrides reduced-motion block) */
+
+.music-player.pill.simple {
+  display: inline-flex;
+  align-items: center;
+  gap: 0; /* label + button are visually attached */
+  /* unified subtle background matching navbar */
+  background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(0,0,0,0.035));
+  border-radius: 16px;
+  padding: 3px;
+  border: 1px solid rgba(255,255,255,0.035);
+  backdrop-filter: blur(6px);
+}
+.music-player.pill.simple .music-label {
+  padding: 6px 10px;
+  margin-right: 0;
+  color: rgba(255,255,255,0.9);
+  background: transparent;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-right: 1px solid rgba(255,255,255,0.04);
+}
+.music-player.pill.simple .music-toggle.compact {
+  background: linear-gradient(90deg, rgba(20,16,24,0.6), rgba(12,12,18,0.55));
+  border-radius: 12px;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 180ms ease, opacity 160ms ease;
+}
+.music-player.pill.simple .music-toggle.compact svg { color: white; opacity: 0.98; width:18px; height:18px }
+.music-player.pill.simple .music-toggle.compact .music-visualizer { display: inline-flex; align-items: center; gap: 5px; margin-left: 4px }
+.music-player.pill.simple .music-toggle:not(.playing) .music-visualizer { opacity: 0.22 }
+.music-player.pill.simple .music-toggle.compact:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,0.6); }
+.music-player.pill.simple .music-toggle.compact:focus { outline: 3px solid rgba(255,140,90,0.06); outline-offset: 2px }
+
+/* visualizer transformed into subtle dots */
+.music-player .music-visualizer i { display: inline-block; width: 5px; height: 5px; background: rgba(255,255,255,0.85); border-radius: 50%; transform-origin: center; animation: viz-dot var(--d) linear infinite; opacity: 0.9 }
+@keyframes viz-dot { 0% { transform: translateY(0); opacity: 0.6 } 50% { transform: translateY(-4px); opacity: 1 } 100% { transform: translateY(0); opacity: 0.6 } }
+
+/* hide visualizer when not playing for a cleaner look */
+.music-player .music-toggle:not(.playing) .music-visualizer { opacity: 0; transform: translateY(0); pointer-events: none }
+
+/* subtle active ring when playing */
+.music-player.pill.simple .music-toggle.compact.playing { box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 30px rgba(255,107,53,0.06), 0 0 18px rgba(0,212,255,0.04); transform: translateY(-2px); }
+
+.music-player.pill.simple .music-label { font-weight: 600; color: rgba(245,245,250,0.92); font-size: 12.5px }
+
+/* reduce gap to make pill more compact */
+.music-player.pill.simple { gap: 0 }
+
+/* Emphasize the music control with a soft colorful background and a tiny music badge */
+.music-player.pill.simple {
+  position: relative;
+  overflow: visible;
+}
+.music-player.pill.simple::before {
+  /* brighter static backdrop so the control stands out noticeably */
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, rgba(255,140,90,0.34), rgba(0,212,255,0.26));
+  filter: blur(18px);
+  opacity: 0.32; /* much brighter steady glow */
+  pointer-events: none;
+  z-index: 0;
+  transition: none; /* no pulsing or opacity changes */
+  animation: none !important;
+}
+
+/* music note badge before the label */
+.music-player .music-label::before {
+  content: '♪';
+  display: inline-block;
+  margin-right: 8px;
+  color: var(--accent-3);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* stronger glow while the toggle is playing */
+.music-player .music-toggle.playing ~ .music-visualizer,
+.music-player .music-toggle.playing {
+  /* emphasize playing state */
+  box-shadow: 0 12px 34px rgba(0,0,0,0.6), 0 0 28px rgba(255,107,53,0.07), 0 0 20px rgba(0,212,255,0.05);
+}
+.music-player .music-toggle.playing { transform: translateY(-2px) }
+.music-player .music-toggle.playing + .music-visualizer { opacity: 1 }
+
+@media (prefers-reduced-motion: no-preference) {
+  .music-player.pill.simple::before { animation: music-pulse 2.8s ease-in-out infinite; }
+  @keyframes music-pulse { 0% { opacity: 0.04 } 50% { opacity: 0.09 } 100% { opacity: 0.04 } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-player.pill.simple::before { animation: none; }
+}
+
+/* Neon rim attached to the pill itself (more visible) */
+.music-pill { position: relative; z-index: 2; border: 1px solid rgba(255,255,255,0.035); box-shadow: 0 6px 18px rgba(0,0,0,0.32); overflow: hidden }
+.music-pill::before {
+  content: '';
+  position: absolute;
+  /* keep the glow inside the pill */
+  inset: 6px;
+  border-radius: 14px;
+  background: radial-gradient(circle at 20% 30%, rgba(255,140,90,0.45), rgba(0,212,255,0.34));
+  filter: blur(12px);
+  opacity: 0.42; /* visible but contained */
+  pointer-events: none;
+  transition: none;
+  animation: none !important;
+  z-index: -1;
+}
+
+/* ensure paused and playing look identical in background intensity */
+.music-pill.paused::before, .music-pill.playing::before { opacity: 0.48; filter: blur(28px); transform: none }
+.music-pill.playing { border: 1px solid rgba(255,255,255,0.045); box-shadow: 0 10px 30px rgba(0,0,0,0.34) }
+
+/* stronger outer glow is handled by ::before (blurred rim). */
+
+@media (prefers-reduced-motion: reduce) {
+  .music-pill::before { transition: none; animation: none }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .music-pill::before { animation: none; transition: none }
+  .music-pill.playing::before { opacity: 0.18; filter: blur(12px) }
+}
+
+/* ensure the compact pill vertically aligns with nav links */
+.navbar .music-player { margin-left: 4px; transform: translateY(1px); }
+
+/* label next to the compact music pill */
+.music-player .music-label {
+  font-family: var(--font-sans, 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue');
+  font-size: 12px;
+  color: rgba(255,255,255,0.9);
+  margin-right: 6px;
+  user-select: none;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  letter-spacing: 0.2px;
+  opacity: 0.95;
+}
+
+@media (max-width: 720px) {
+  /* hide label on small screens to save space */
+  .music-player .music-label { display: none }
+}
+
 
 /* ============================= */
 /* CONTAINER                     */
@@ -443,10 +669,13 @@ body.light .container {
   background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.02) 100%);
   border-radius: 24px;
   padding: 60px 48px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.06);
+  /* stronger card shadow and border to improve visibility */
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55), inset 0 6px 30px rgba(0,0,0,0.35), 0 0 30px rgba(255,107,53,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  transition: transform 260ms cubic-bezier(0.2,0.9,0.2,1), box-shadow 260ms ease, border-color 260ms ease;
+  z-index: 2;
 }
 
 /* ambient glow */
@@ -459,8 +688,14 @@ body.light .container {
   width: 900px;
   height: 450px;
   background: radial-gradient(ellipse, rgba(255,107,53,0.12), rgba(0,212,255,0.06) 50%, transparent 70%);
-  filter: blur(80px);
+  filter: blur(72px);
   z-index: -1;
+}
+
+.hero:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 110px rgba(0,0,0,0.6), inset 0 8px 36px rgba(0,0,0,0.4), 0 0 40px rgba(255,107,53,0.04);
+  border-color: rgba(255,255,255,0.10);
 }
 
 .hero-text h1 {
