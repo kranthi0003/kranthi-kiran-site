@@ -3,7 +3,7 @@ import profile from '../../assets/profile.png'
 import { Suspense } from 'react'
 const SkillsModal = React.lazy(() => import('./SkillsModal'));
 
-export default function Hero(){
+export default function Hero({ navigate }){
   const [showSkills, setShowSkills] = useState(false)
 
   return (
@@ -30,6 +30,19 @@ export default function Hero(){
           {' '}who's spent 4+ years wrangling servers at Amazon, Couchbase, and GitHub.
         </p>
         <p>Big fan of distributed systems, making slow things go brrr, and building infra that doesn't page me at 3am.</p>
+        <button
+          className="wallet-btn"
+          onClick={() => navigate && navigate('/wallet')}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              navigate && navigate('/wallet')
+            }
+          }}
+          tabIndex={0}
+          aria-label="Open 2028 Halving Strategy Wallet"
+        >
+          <i className="fa-solid fa-wallet"></i> Wallet
+        </button>
       </div>
 
       <div className="hero-image">

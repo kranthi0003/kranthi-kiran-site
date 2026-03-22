@@ -18,12 +18,12 @@ import Gaming from './components/Gaming'
 import Music from './components/Music'
 import Journey from './components/Journey'
 import Projects from './components/Projects'
+import HalvingTracker from './components/HalvingTracker'
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [route, setRoute] = useState(window.location.pathname + window.location.hash)
 
-  // Listen for navigation (both popstate and hash changes)
   useEffect(() => {
     const handler = () => {
       setRoute(window.location.pathname + window.location.hash)
@@ -39,13 +39,10 @@ export default function App() {
   const navigate = (path) => {
     window.history.pushState({}, "", path)
     setRoute(path)
-    // Scroll behavior based on path
     setTimeout(() => {
-      if (path === "/" || path === "" || path === "/photography" || path === "/cryto") {
-        // Scroll to top for home, photography, and cryto
+      if (path === "/" || path === "" || path === "/photography" || path === "/cryto" || path === "/wallet") {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (path.includes('#')) {
-        // Scroll to hash element
         const hash = path.split('#')[1]
         const el = document.getElementById(hash)
         if (el) {
@@ -55,7 +52,6 @@ export default function App() {
     }, 0)
   }
 
-  // Update active section based on route
   useEffect(() => {
     if (route === '/cryto') {
       setActiveSection('cryto')
@@ -81,27 +77,24 @@ export default function App() {
       setActiveSection('journey')
     } else if (route === '/projects') {
       setActiveSection('projects')
+    } else if (route === '/wallet') {
+      setActiveSection('wallet')
     } else {
       setActiveSection('home')
     }
   }, [route])
 
-  // Listen for scroll to update active section
   useEffect(() => {
     const handleScroll = () => {
-      // Only track scroll on home page
       if (route !== "/" && route !== "") {
         return
       }
-      // Home page doesn't need scroll tracking anymore
       setActiveSection("home")
     }
     
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [route])
-
-  // Single-page app: Hero and Featured Projects on home; other sections including Journey are dedicated pages
 
   return (
     <div>
@@ -133,9 +126,11 @@ export default function App() {
             <Journey />
           ) : route === "/projects" ? (
             <Projects navigate={navigate} />
+          ) : route === "/wallet" ? (
+            <HalvingTracker />
           ) : (
             <>
-              <Hero id="top" />
+              <Hero id="top" navigate={navigate} />
               <CompanyLogos />
               <QuickStats />
               <FeaturedPreview navigate={navigate} />
