@@ -1,5 +1,5 @@
 import React from 'react'
-import MusicPlayer from './MusicPlayer'
+
 
 export default function Navbar({ active = 'home', navigate }){
   return (
@@ -35,7 +35,7 @@ export default function Navbar({ active = 'home', navigate }){
           <a href="/journey" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/journey"); }}>Career</a>
           <a href="/projects" className={active === 'projects' ? 'active' : ''} aria-current={active === 'projects' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/projects"); }}>Projects</a>
           <a href="/crypto" className={active === 'crypto' ? 'active' : ''} aria-current={active === 'crypto' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/crypto"); }}>Crypto</a>
-          <MusicPlayer />
+
         </div>
       </div>
     </nav>

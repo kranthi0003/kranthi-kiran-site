@@ -15,7 +15,7 @@ import Travel from './components/Travel'
 import Cooking from './components/Cooking'
 import Cricket from './components/Cricket'
 import Gaming from './components/Gaming'
-import Music from './components/Music'
+
 import Journey from './components/Journey'
 import Projects from './components/Projects'
 import HalvingTracker from './components/HalvingTracker'
@@ -120,8 +120,7 @@ export default function App() {
             <Cricket />
           ) : route === "/gaming" ? (
             <Gaming />
-          ) : route === "/music" ? (
-            <Music />
+
           ) : route === "/journey" ? (
             <Journey />
           ) : route === "/projects" ? (
