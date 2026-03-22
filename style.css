@@ -756,6 +756,69 @@ body.light .hero-text p {
   color: rgba(var(--text-muted-rgb), 0.9);
 }
 
+/* Wallet Button on Hero */
+.wallet-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--global-font);
+  letter-spacing: 1px;
+  color: #080b12;
+  background: linear-gradient(135deg, #0efa82, #00d4ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all var(--transition-mid) ease;
+  box-shadow: 0 4px 20px rgba(14, 250, 130, 0.3);
+  margin-top: 8px;
+}
+
+.wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(14, 250, 130, 0.45);
+  background: linear-gradient(135deg, #00d4ff, #0efa82);
+}
+
+.wallet-btn:active {
+  transform: translateY(0);
+}
+
+.wallet-btn i {
+  font-size: 16px;
+}
+
+/* Navbar Wallet Link */
+.nav-wallet-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0efa82, #00d4ff);
+  color: #080b12 !important;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: all var(--transition-mid) ease;
+  text-decoration: none !important;
+  opacity: 1 !important;
+}
+
+.nav-wallet-link:hover {
+  box-shadow: 0 4px 16px rgba(14, 250, 130, 0.4);
+  transform: translateY(-1px);
+}
+
+.nav-wallet-link.active {
+  box-shadow: 0 0 12px rgba(14, 250, 130, 0.5);
+}
+
+
+
+
 /* ============================= */
 /* IMAGE                         */
 /* ============================= */
