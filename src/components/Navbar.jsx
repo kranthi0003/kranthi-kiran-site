@@ -34,7 +34,7 @@ export default function Navbar({ active = 'home', navigate }){
           <a href="/" className={active === 'home' ? 'active' : ''} aria-current={active === 'home' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/"); }}>Home</a>
           <a href="/journey" className={active === 'journey' ? 'active' : ''} aria-current={active === 'journey' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/journey"); }}>Career</a>
           <a href="/projects" className={active === 'projects' ? 'active' : ''} aria-current={active === 'projects' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/projects"); }}>Projects</a>
-          <a href="/wallet" className={`nav-wallet-link ${active === 'wallet' ? 'active' : ''}`} aria-current={active === 'wallet' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/wallet"); }}><i className="fa-solid fa-wallet"></i> Wallet</a>
+          <a href="/crypto" className={active === 'crypto' ? 'active' : ''} aria-current={active === 'crypto' ? 'page' : undefined} onClick={e => { e.preventDefault(); navigate("/crypto"); }}>Crypto</a>
           <MusicPlayer />
         </div>
       </div>

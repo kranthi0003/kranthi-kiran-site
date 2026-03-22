@@ -6,7 +6,7 @@ import QuickStats from './components/QuickStats'
 import FeaturedPreview from './components/FeaturedPreview'
 import Footer from './components/Footer'
 import BackToTop from './components/BackToTop'
-import Cryto from './components/Cryto'
+import Crypto from './components/Crypto'
 import Photography from './components/Photography'
 import News from './components/News'
 import F1 from './components/F1'
@@ -41,7 +41,7 @@ export default function App() {
     setRoute(path)
     setTimeout(() => {
       if (path === "/" || path === "" || path === "/photography" || path === "/cryto" || path === "/wallet") {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+          window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (path.includes('#')) {
         const hash = path.split('#')[1]
         const el = document.getElementById(hash)
@@ -54,7 +54,7 @@ export default function App() {
 
   useEffect(() => {
     if (route === '/cryto') {
-      setActiveSection('cryto')
+        setActiveSection('crypto')
     } else if (route === '/photography') {
       setActiveSection('photography')
     } else if (route === '/news') {
@@ -102,8 +102,8 @@ export default function App() {
       <Navbar active={activeSection} navigate={navigate} />
       <main id="main">
         <div className="container">
-          {route === "/cryto" ? (
-            <Cryto />
+            {route === "/crypto" ? (
+              <Crypto />
           ) : route === "/photography" ? (
             <Photography />
           ) : route === "/news" ? (
@@ -127,6 +127,8 @@ export default function App() {
           ) : route === "/projects" ? (
             <Projects navigate={navigate} />
           ) : route === "/wallet" ? (
+            <HalvingTracker />
+          ) : route === "/halvingtracker" ? (
             <HalvingTracker />
           ) : (
             <>

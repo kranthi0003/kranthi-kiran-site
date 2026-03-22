@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react'
 
 const COINS = ['bitcoin', 'ethereum', 'binancecoin', 'solana', 'ripple', 'cardano', 'dogecoin', 'polkadot', 'litecoin']
@@ -188,9 +189,35 @@ export default function Cryto(){
     }
   })() : null
 
+  const [showHalvingTracker, setShowHalvingTracker] = useState(false)
+  // Accept navigate prop for routing
   return (
     <>
     <div className="cryto-page" style={{ padding: 24, minHeight: '80vh' }}>
+      {/* Wallet Section */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 0, marginBottom: 24 }}>
+        <button
+          className="wallet-btn"
+          style={{
+            background: 'linear-gradient(135deg, #fbbf24, #f59e42)',
+            color: '#222',
+            fontWeight: 700,
+            border: 'none',
+            borderRadius: 8,
+            padding: '10px 20px',
+            fontSize: 16,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.04)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8
+          }}
+          onClick={() => (typeof window !== 'undefined' && window.navigate ? window.navigate('/halvingtracker') : window.location.assign('/halvingtracker'))}
+          aria-label="Open 2028 Halving Strategy Wallet"
+        >
+          <i className="fa-solid fa-wallet"></i> Wallet
+        </button>
+      </div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 24, marginBottom: 24 }}>
         <div>
           <h1 style={{ fontSize: 48, marginBottom: 12 }}>Cryto Dashboard</h1>

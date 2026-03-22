@@ -7,56 +7,44 @@ export default function Hero({ navigate }){
   const [showSkills, setShowSkills] = useState(false)
 
   return (
-  <>
-    <section id="top" className="hero">
-      <div className="hero-text">
-        <h1>Hey, I'm Kranthi.</h1>
-        <p className="tagline">I break things, fix them, and make them faster ⚡</p>
-        <p>
-          <span 
-            className="skill-trigger"
-            onClick={() => setShowSkills(true)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                setShowSkills(true)
-              }
-            }}
-            role="button"
-            tabIndex={0}
-            title="Click to see skills"
-          >
-            Cloud Engineer
-          </span>
-          {' '}who's spent 4+ years wrangling servers at Amazon, Couchbase, and GitHub.
-        </p>
-        <p>Big fan of distributed systems, making slow things go brrr, and building infra that doesn't page me at 3am.</p>
-        <button
-          className="wallet-btn"
-          onClick={() => navigate && navigate('/wallet')}
-          onKeyPress={(e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              navigate && navigate('/wallet')
-            }
-          }}
-          tabIndex={0}
-          aria-label="Open 2028 Halving Strategy Wallet"
-        >
-          <i className="fa-solid fa-wallet"></i> Wallet
-        </button>
-      </div>
-
-      <div className="hero-image">
-        <div className="image-frame">
-          <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" />
+    <>
+      <section id="top" className="hero">
+        <div className="hero-text">
+          <h1>Hey, I'm Kranthi.</h1>
+          <p className="tagline">I break things, fix them, and make them faster ⚡</p>
+          <p>
+            <span 
+              className="skill-trigger"
+              onClick={() => setShowSkills(true)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  setShowSkills(true)
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              title="Click to see skills"
+            >
+              Cloud Engineer
+            </span>
+            {' '}who's spent 4+ years wrangling servers at Amazon, Couchbase, and GitHub.
+          </p>
+          <p>Big fan of distributed systems, making slow things go brrr, and building infra that doesn't page me at 3am.</p>
+          {/* Wallet button removed as per request */}
         </div>
-      </div>
-    </section>
 
-    {showSkills && (
-      <Suspense fallback={<div style={{textAlign:'center',padding:'2em'}}>Loading skills...</div>}>
-        <SkillsModal onClose={() => setShowSkills(false)} />
-      </Suspense>
-    )}
-  </>
+        <div className="hero-image">
+          <div className="image-frame">
+            <img id="profileImage" src={profile} alt="Portrait of Kranthi Kiran, backend engineer" />
+          </div>
+        </div>
+      </section>
+
+      {showSkills && (
+        <Suspense fallback={<div style={{textAlign:'center',padding:'2em'}}>Loading skills...</div>}>
+          <SkillsModal onClose={() => setShowSkills(false)} />
+        </Suspense>
+      )}
+    </>
   )
 }
