@@ -112,21 +112,42 @@ function reducer(st, a) {
   }
 }
 
+// --- Robust fetch logic from Cryto.jsx ---
+const SIMPLE_PRICE_API = (vs = 'inr,usd', ids = ['bitcoin', 'solana']) =>
+  `https://api.coingecko.com/api/v3/simple/price?ids=${ids.join(',')}&vs_currencies=${vs}`;
+
+async function fetchJson(url) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 4000);
+  try {
+    const res = await fetch(url, { signal: controller.signal });
+    clearTimeout(timeoutId);
+    if (res.ok) return await res.json();
+  } catch (e) {
+    clearTimeout(timeoutId);
+  }
+  throw new Error('fetch failed');
+}
+
 async function fetchPricesViaAI() {
   try {
-    const [cryptoRes, inrRes] = await Promise.all([
-      fetch("<https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,solana&vs_currencies=usd>"),
-      fetch("<https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=inr>")
-    ]);
-    const cryptoData = await cryptoRes.json();
-    const inrData = await inrRes.json();
-    const btcPrice = cryptoData?.bitcoin?.usd;
-    const solPrice = cryptoData?.solana?.usd;
-    const usdInr = inrData?.tether?.inr || 83.5;
-    if (btcPrice > 1000 && solPrice > 1) {
+    const url = SIMPLE_PRICE_API('inr,usd', ['bitcoin', 'solana']);
+    const data = await fetchJson(url);
+    const btcPrice = data?.bitcoin?.usd;
+    const solPrice = data?.solana?.usd;
+    // Use INR price for USD/INR conversion if available
+    const btcInr = data?.bitcoin?.inr;
+    const solInr = data?.solana?.inr;
+    // Estimate USD/INR from BTC prices if possible
+    let usdInr = undefined;
+    if (btcPrice && btcInr) usdInr = btcInr / btcPrice;
+    else if (solPrice && solInr) usdInr = solInr / solPrice;
+    if (btcPrice > 1000 && solPrice > 1 && usdInr) {
       return { BTC: btcPrice, SOL: solPrice, usdInr };
     }
-  } catch (e) { console.error(e); }
+  } catch (e) {
+    // fallback or error
+  }
   return null;
 }
 
@@ -134,6 +155,9 @@ const fmt = (n, d = 2) => Number(n).toLocaleString("en-IN", { minimumFractionDig
 const fmtUSD = n => "$" + fmt(n);
 const fmtINR = n => "₹" + fmt(n);
 const fmtCoin = (n, d = 5) => Number(n).toFixed(d);
+
+// Helper for rounding USD/INR to 2 decimals
+const fmtUSDINR = n => "₹" + fmt(Number(n), 2);
 
 function getWeekInfo(settings) {
   const now = new Date();
@@ -730,7 +754,7 @@ function Dashboard({ state, onRefresh, fetching, dispatch }) {
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <Stat label="BTC/USD" value={hasPrices ? fmtUSD(prices.BTC) : "..."} color={hasPrices ? C.white : C.muted} />
           <Stat label="SOL/USD" value={hasPrices ? fmtUSD(prices.SOL) : "..."} color={hasPrices ? C.white : C.muted} />
-          <Stat label="USD/INR" value={"₹" + settings.usdInr} />
+          <Stat label="USD/INR" value={fmtUSDINR(settings.usdInr)} />
         </div>
         <div style={{ textAlign: "center", marginTop: 8 }}>
           {state.priceError && <div style={{ fontSize: 10, color: C.red, marginBottom: 4 }}>⚠️ {state.priceError}</div>}
@@ -1136,6 +1160,7 @@ function Settings({ state, dispatch }) {
       </Card>
       <Card title="USD/INR">
         <Input label="Rate (auto-updates)" type="number" step="0.01" value={s.usdInr} onChange={e => up("usdInr", Number(e.target.value))} />
+        <div style={{ fontSize: 28, fontWeight: 800, color: C.white, marginTop: 8, textAlign: "center" }}>{fmtUSDINR(s.usdInr)}</div>
       </Card>
       <Card title="Holdings">
         <Input label="BTC Qty" type="number" step="any" value={state.holdings.BTC.qty} onChange={e => {
