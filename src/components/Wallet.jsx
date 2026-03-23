@@ -117,8 +117,11 @@ export default function Wallet() {
   useEffect(() => { localStorage.setItem('btc_holdings', JSON.stringify(holdings)); }, [holdings]);
   useEffect(() => { localStorage.setItem('btc_transactions', JSON.stringify(transactions)); }, [transactions]);
 
-  const currentValueUSD = holdings.qty * (liveBTCPrice || btcPrice.usd || 0);
-  const currentValueINR = holdings.qty * (btcPrice.inr || 0);
+  // Use the latest available BTC price for current value
+  const btcPriceUSD = liveBTCPrice !== null ? liveBTCPrice : btcPrice.usd;
+  const btcPriceINR = btcPrice.inr;
+  const currentValueUSD = btcPriceUSD !== null ? holdings.qty * btcPriceUSD : null;
+  const currentValueINR = btcPriceINR !== null ? holdings.qty * btcPriceINR : null;
   const investedUSD = holdings.qty * holdings.avgCost;
   const investedINR = holdings.qty * holdings.avgCost * (btcPrice.inr && btcPrice.usd ? btcPrice.inr / btcPrice.usd : 0);
   const plUSD = currentValueUSD - investedUSD;
@@ -243,8 +246,12 @@ export default function Wallet() {
             </td>
             <td style={{ fontSize: 22, fontWeight: 700, color: '#fbbf24' }}>
               {currency === 'USD'
-                ? `$${currentValueUSD.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
-                : `₹${currentValueINR.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`}
+                ? (currentValueUSD !== null
+                    ? `$${currentValueUSD.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+                    : 'Loading...')
+                : (currentValueINR !== null
+                    ? `₹${currentValueINR.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+                    : 'Loading...')}
             </td>
             <td style={{ fontSize: 22, fontWeight: 700, color: (currency === 'USD' ? plUSD : plINR) >= 0 ? '#22c55e' : '#ef4444' }}>
               {currency === 'USD'
