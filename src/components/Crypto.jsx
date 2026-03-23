@@ -1,13 +1,13 @@
+import React, { useEffect, useState } from 'react';
+import Wallet from './Wallet';
 
-import React, { useEffect, useState } from 'react'
-
-const COINS = ['bitcoin', 'ethereum', 'binancecoin', 'solana', 'ripple', 'cardano', 'dogecoin', 'polkadot', 'litecoin']
+const COINS = ['bitcoin', 'ethereum', 'binancecoin', 'solana', 'ripple', 'cardano', 'dogecoin', 'polkadot', 'litecoin'];
 
 const MARKETS_API = (vs='usd', page=1, perPage=9) =>
-  `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${vs}&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=true&price_change_percentage=24h,30d,1y`
+  `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${vs}&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=true&price_change_percentage=24h,30d,1y`;
 
 const SIMPLE_PRICE_API = (vs='inr,usd', ids=COINS) =>
-  `https://api.coingecko.com/api/v3/simple/price?ids=${ids.join(',')}&vs_currencies=${vs}`
+  `https://api.coingecko.com/api/v3/simple/price?ids=${ids.join(',')}&vs_currencies=${vs}`;
 
 function Sparkline({ prices = [], w = 140, h = 40, small=false }){
   if (!prices || prices.length === 0) return null
@@ -30,7 +30,7 @@ function Sparkline({ prices = [], w = 140, h = 40, small=false }){
   )
 }
 
-export default function Cryto(){
+export default function Crypto({ navigate }){
   const [markets, setMarkets] = useState(null)
   const [inrPrices, setInrPrices] = useState(null)
   const [error, setError] = useState('')
@@ -60,6 +60,9 @@ export default function Cryto(){
 
   // Portfolio Analysis dropdown state
   const [portfolioAnalysisExpanded, setPortfolioAnalysisExpanded] = useState(true)
+
+  // Wallet modal state
+  const [showWallet, setShowWallet] = useState(false);
 
   useEffect(() => {
     let mounted = true
@@ -189,7 +192,7 @@ export default function Cryto(){
     }
   })() : null
 
-  const [showHalvingTracker, setShowHalvingTracker] = useState(false)
+  // HalvingTracker state removed
   // Accept navigate prop for routing
   return (
     <>
@@ -212,7 +215,7 @@ export default function Cryto(){
             alignItems: 'center',
             gap: 8
           }}
-          onClick={() => (typeof window !== 'undefined' && window.navigate ? window.navigate('/halvingtracker') : window.location.assign('/halvingtracker'))}
+          onClick={() => navigate && navigate('/wallet')}
           aria-label="Open 2028 Halving Strategy Wallet"
         >
           <i className="fa-solid fa-wallet"></i> Wallet

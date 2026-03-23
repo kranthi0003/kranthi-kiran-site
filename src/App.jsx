@@ -15,10 +15,11 @@ import Travel from './components/Travel'
 import Cooking from './components/Cooking'
 import Cricket from './components/Cricket'
 import Gaming from './components/Gaming'
+import Wallet from './components/Wallet';
 
 import Journey from './components/Journey'
 import Projects from './components/Projects'
-import HalvingTracker from './components/HalvingTracker'
+
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home')
@@ -103,7 +104,7 @@ export default function App() {
       <main id="main">
         <div className="container">
             {route === "/crypto" ? (
-              <Crypto />
+              <Crypto navigate={navigate} />
           ) : route === "/photography" ? (
             <Photography />
           ) : route === "/news" ? (
@@ -121,14 +122,10 @@ export default function App() {
           ) : route === "/gaming" ? (
             <Gaming />
 
-          ) : route === "/journey" ? (
-            <Journey />
-          ) : route === "/projects" ? (
-            <Projects navigate={navigate} />
           ) : route === "/wallet" ? (
-            <HalvingTracker />
+            <Wallet />
           ) : route === "/halvingtracker" ? (
-            <HalvingTracker />
+            <div>HalvingTracker removed</div>
           ) : (
             <>
               <Hero id="top" navigate={navigate} />

@@ -1760,7 +1760,15 @@ body.light .contact-form textarea { background: #fff; border-color: rgba(0,0,0,0
   gap: 28px;
   align-items: start;
 }
-.photo-item { border-radius: 12px; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02)); box-shadow: 0 18px 48px rgba(2,6,12,0.45); transition: transform 220ms ease, box-shadow 220ms ease; }
+.photo-item { border-radius: 12px; overflow: hidden; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+  box-shadow: 0 18px 48px rgba(2,6,12,0.45);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  position: relative;
+  overflow: hidden;
+}
+
 .photo-item a { display: block }
 .photo-item img { width: 100%; height: var(--thumb-height); object-fit: cover; object-position: center; display:block }
 /* Remove tall/wide exceptions so all thumbnails are uniform */
@@ -3437,7 +3445,7 @@ body.light .skills-marquee-section {
 }
 
 body.light .skills-title {
-  background: linear-gradient(135deg, #111827 0%, #2563eb 50%, #ff6b35 100%);
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -4016,5 +4024,193 @@ body.light .social-link {
     font-size: 20px;
     border-radius: 14px;
   }
+}
+
+/* Phantom Wallet Inspired Styles */
+.phantom-wallet-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #201c3a 0%, #2d2e4a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+}
+.phantom-wallet-card {
+  background: rgba(34, 36, 58, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px 0 rgba(34,36,58,0.18), 0 1.5px 8px 0 rgba(14,250,130,0.08);
+  padding: 36px 32px 28px 32px;
+  max-width: 410px;
+  width: 100%;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.phantom-wallet-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.phantom-wallet-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0efa82 0%, #7c3aed 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(14,250,130,0.18);
+}
+.phantom-wallet-avatar img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+.phantom-wallet-title {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.phantom-wallet-address {
+  font-size: 0.92em;
+  color: #b6b6d6;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.phantom-wallet-balance {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.phantom-wallet-btc {
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.phantom-wallet-btc span:last-child {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #b6b6d6;
+  margin-left: 6px;
+}
+.phantom-wallet-fiat {
+  font-size: 1.1rem;
+  color: #a7f3d0;
+  margin-bottom: 2px;
+}
+.phantom-wallet-fiat-inr {
+  color: #b6b6d6;
+  font-size: 0.98em;
+  margin-left: 4px;
+}
+.phantom-wallet-pl {
+  font-size: 1.08rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.phantom-wallet-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+.phantom-wallet-action {
+  padding: 8px 28px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #2d2e4a 0%, #181c24 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  outline: none;
+  box-shadow: 0 1.5px 8px 0 rgba(14,250,130,0.08);
+}
+.phantom-wallet-action.active, .phantom-wallet-action:hover {
+  background: linear-gradient(135deg, #0efa82 0%, #7c3aed 100%);
+  color: #181c24;
+}
+.phantom-wallet-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  justify-content: center;
+}
+.phantom-wallet-form input {
+  background: #23243a;
+  border: 1.5px solid #2d2e4a;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 1rem;
+  width: 90px;
+  outline: none;
+  transition: border 0.18s;
+}
+.phantom-wallet-form input:focus {
+  border: 1.5px solid #0efa82;
+}
+.phantom-wallet-form input[type="date"] {
+  width: 120px;
+}
+.phantom-wallet-add {
+  background: linear-gradient(135deg, #7c3aed 0%, #0efa82 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.phantom-wallet-add:hover {
+  background: linear-gradient(135deg, #0efa82 0%, #7c3aed 100%);
+}
+.phantom-wallet-history {
+  margin-top: 18px;
+  background: rgba(34,36,58,0.82);
+  border-radius: 14px;
+  padding: 16px 10px 10px 10px;
+  box-shadow: 0 2px 12px rgba(14,250,130,0.06);
+}
+.phantom-wallet-history-title {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #a7f3d0;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.phantom-wallet-empty {
+  color: #b6b6d6;
+  text-align: center;
+  padding: 18px 0 8px 0;
+}
+.phantom-wallet-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  font-size: 1rem;
+}
+.phantom-wallet-table th {
+  color: #b6b6d6;
+  font-weight: 600;
+  font-size: 0.98em;
+  padding-bottom: 4px;
+}
+.phantom-wallet-table td {
+  background: #23243a;
+  border-radius: 8px;
+  padding: 7px 8px;
+  text-align: center;
+  font-weight: 600;
+}
+.phantom-wallet-table td.buy {
+  color: #0efa82;
+}
+.phantom-wallet-table td.sell {
+  color: #ff3b5c;
 }
 
