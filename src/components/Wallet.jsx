@@ -1,4 +1,41 @@
 import React, { useState, useEffect } from "react";
+// JSONBin.io integration
+const BIN_ID = "69c155d6aa77b81da90fac42";
+const API_KEY = "$2a$10$iaWyY.ZivRsMx/6DDJsOZOhXwalf4F0RMJDhywTfvzE3m5MJidMY2";
+const BASE_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+async function fetchTransactionsFromCloud() {
+  try {
+    const res = await fetch(BASE_URL, {
+      headers: { "X-Master-Key": API_KEY }
+    });
+    if (!res.ok) throw new Error('Failed to fetch transactions');
+    const data = await res.json();
+    // Filter out empty objects (from initial bin)
+    return (data.record || []).filter(tx => Object.keys(tx).length > 0);
+  } catch (err) {
+    alert('Error loading transactions from cloud: ' + err.message);
+    return [];
+  }
+}
+
+async function saveTransactionsToCloud(transactions) {
+  try {
+    // If transactions is empty, save an empty array (jsonbin.io supports this)
+    const payload = Array.isArray(transactions) && transactions.length === 0 ? [] : transactions;
+    const res = await fetch(BASE_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": API_KEY
+      },
+      body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Failed to save transactions');
+  } catch (err) {
+    alert('Error saving transactions to cloud: ' + err.message);
+  }
+}
 // Add Orbitron font from Google Fonts
 if (typeof document !== 'undefined') {
   const orbitronFont = document.createElement('link');
@@ -69,10 +106,7 @@ export default function Wallet() {
     const h = localStorage.getItem('btc_holdings');
     return h ? JSON.parse(h) : { qty: 0, avgCost: 0 };
   });
-  const [transactions, setTransactions] = useState(() => {
-    const t = localStorage.getItem('btc_transactions');
-    return t ? JSON.parse(t) : [];
-  });
+  const [transactions, setTransactions] = useState([]);
   // Filter state
   const [filter, setFilter] = useState({ month: '', year: '' });
   // Extract unique months/years from transactions
@@ -115,23 +149,28 @@ export default function Wallet() {
 
   useEffect(() => { fetchBTCPrice().then(setBTCPrice); }, []);
   useEffect(() => { localStorage.setItem('btc_holdings', JSON.stringify(holdings)); }, [holdings]);
-  useEffect(() => { localStorage.setItem('btc_transactions', JSON.stringify(transactions)); }, [transactions]);
+  // Load transactions from jsonbin.io on mount
+  useEffect(() => {
+    fetchTransactionsFromCloud().then(setTransactions);
+  }, []);
 
   // Use the latest available BTC price for current value
   const btcPriceUSD = liveBTCPrice !== null ? liveBTCPrice : btcPrice.usd;
   const btcPriceINR = btcPrice.inr;
-  const currentValueUSD = btcPriceUSD !== null ? holdings.qty * btcPriceUSD : null;
-  const currentValueINR = btcPriceINR !== null ? holdings.qty * btcPriceINR : null;
-  const investedUSD = holdings.qty * holdings.avgCost;
-  const investedINR = holdings.qty * holdings.avgCost * (btcPrice.inr && btcPrice.usd ? btcPrice.inr / btcPrice.usd : 0);
-  const plUSD = currentValueUSD - investedUSD;
-  const plINR = currentValueINR - investedINR;
+  // Rounded values
+  const roundedHoldings = Number(holdings.qty).toFixed(6);
+  const currentValueUSD = btcPriceUSD !== null ? +(holdings.qty * btcPriceUSD).toFixed(2) : null;
+  const currentValueINR = btcPriceINR !== null ? +(holdings.qty * btcPriceINR).toFixed(2) : null;
+  const investedUSD = +(holdings.qty * holdings.avgCost).toFixed(2);
+  const investedINR = +(holdings.qty * holdings.avgCost * (btcPrice.inr && btcPrice.usd ? btcPrice.inr / btcPrice.usd : 0)).toFixed(2);
+  const plUSD = currentValueUSD !== null ? +(currentValueUSD - investedUSD).toFixed(2) : 0;
+  const plINR = currentValueINR !== null ? +(currentValueINR - investedINR).toFixed(2) : 0;
 
   // Calculate P/L %
   const plPercentUSD = investedUSD !== 0 ? (plUSD / investedUSD) * 100 : 0;
   const plPercentINR = investedINR !== 0 ? (plINR / investedINR) * 100 : 0;
 
-  function deleteTransaction(id) {
+  async function deleteTransaction(id) {
     const newTransactions = transactions.filter(tx => tx.id !== id);
     let qty = 0, avgCost = 0;
     newTransactions.forEach(tx => {
@@ -147,12 +186,35 @@ export default function Wallet() {
     });
     setTransactions(newTransactions);
     setHoldings({ qty, avgCost: qty === 0 ? 0 : avgCost });
+    await saveTransactionsToCloud(newTransactions);
+    // Reload from cloud to ensure UI is in sync
+    const latest = await fetchTransactionsFromCloud();
+    setTransactions(latest);
   }
 
   function addTransaction() {
     const qty = parseFloat(form.qty);
     const price = parseFloat(form.price);
-    if (!qty || !price) return;
+    if (!qty || !price) {
+      alert('Please enter both quantity and price.');
+      return;
+    }
+    // Date validation
+    const now = new Date();
+    let txDate = form.date ? new Date(form.date) : now;
+    if (isNaN(txDate.getTime())) {
+      alert('Invalid date.');
+      return;
+    }
+    const minDate = new Date('2010-01-01');
+    if (txDate > now) {
+      alert('Transaction date cannot be in the future.');
+      return;
+    }
+    if (txDate < minDate) {
+      alert('Transaction date is too far in the past.');
+      return;
+    }
     let newQty = holdings.qty;
     let newAvg = holdings.avgCost;
     if (form.type === "buy") {
@@ -160,20 +222,23 @@ export default function Wallet() {
       newQty += qty;
     } else {
       if (qty > newQty) {
-        alert('Not enough BTC to sell!');
+        alert('Sell not possible: Not enough BTC available.');
+        return;
+      }
+      if (newQty === 0) {
+        alert('Sell not possible: You have no BTC holdings.');
         return;
       }
       newQty -= qty;
     }
     setHoldings({ qty: newQty, avgCost: newQty === 0 ? 0 : newAvg });
     // Add timestamp to transaction
-    const now = new Date();
     const dateStr = form.date ? form.date : now.toISOString().slice(0, 10);
     const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' }) + ' IST';
-    setTransactions([
-      { ...form, qty, price, id: Date.now(), date: dateStr, time: timeStr },
-      ...transactions,
-    ]);
+    const newTx = { ...form, qty, price, id: Date.now(), date: dateStr, time: timeStr };
+    const updated = [newTx, ...transactions];
+    setTransactions(updated);
+    saveTransactionsToCloud(updated);
     setForm({ ...form, qty: "", price: "" });
   }
 
@@ -240,9 +305,9 @@ export default function Wallet() {
               {holdings.qty} <span style={{ color: '#93c5fd', fontWeight: 600 }}>BTC</span>
             </td>
             <td style={{ fontSize: 22, fontWeight: 700, color: '#38bdf8' }}>
-              {currency === 'USD'
-                ? `$${investedUSD.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
-                : `₹${investedINR.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`}
+                {currency === 'USD'
+                  ? `$${investedUSD.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+                  : `₹${investedINR.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`}
             </td>
             <td style={{ fontSize: 22, fontWeight: 700, color: '#fbbf24' }}>
               {currency === 'USD'
