@@ -10,11 +10,11 @@ export default function FeaturedPreview({ navigate }) {
       path: '/photography',
     },
     {
-      id: 'cryto',
+      id: 'crypto',
       title: 'Crypto',
       emoji: '₿',
       description: 'Digital assets tracker',
-      path: '/cryto',
+      path: '/crypto',
     },
     {
       id: 'gaming',

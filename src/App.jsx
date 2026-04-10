@@ -41,7 +41,7 @@ export default function App() {
     window.history.pushState({}, "", path)
     setRoute(path)
     setTimeout(() => {
-      if (path === "/" || path === "" || path === "/photography" || path === "/cryto" || path === "/wallet") {
+      if (path === "/" || path === "" || path === "/photography" || path === "/crypto" || path === "/wallet") {
           window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (path.includes('#')) {
         const hash = path.split('#')[1]
@@ -54,7 +54,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (route === '/cryto') {
+    if (route === '/crypto') {
         setActiveSection('crypto')
     } else if (route === '/photography') {
       setActiveSection('photography')

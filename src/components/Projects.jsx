@@ -12,12 +12,12 @@ export default function Projects({ navigate }) {
       status: 'in-progress'
     },
     {
-      id: 'cryto',
+      id: 'crypto',
       title: 'Crypto',
       emoji: '₿',
       description: 'Digital assets',
       color: 'accent-2',
-      path: '/cryto',
+      path: '/crypto',
       status: 'in-progress'
     },
     {

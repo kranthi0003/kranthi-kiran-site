@@ -2167,7 +2167,7 @@ body.light .project-card {
 .project-card--travel,
 .project-card--cricket,
 .project-card--music,
-.project-card--cryto {
+.project-card--crypto {
   color: var(--accent-2);
 }
 
@@ -2332,7 +2332,7 @@ body.light .status-implemented {
   opacity: 0.95;
 }
 
-.project-card--cryto::after {
+.project-card--crypto::after {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='2'><circle cx='32' cy='32' r='14'/><path d='M28 28h8M28 36h8' stroke-linecap='round'/></g></svg>");
   background-repeat: no-repeat;
   background-position: calc(100% - 12px) 10px;
@@ -3638,7 +3638,7 @@ body.light .skill-name {
 
 /* .featured-preview-card--photography:hover removed for performance */
 
-.featured-preview-card--cryto {
+.featured-preview-card--crypto {
   border-left-color: var(--accent-2);
   box-shadow: 0 15px 40px rgba(0,0,0,0.25), 0 0 30px rgba(0,212,255,0.1);
   background: 
@@ -3659,19 +3659,19 @@ body.light .skill-name {
     linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
 }
 
-.featured-preview-card--cryto::after {
+.featured-preview-card--crypto::after {
   background: 
     radial-gradient(ellipse at 80% 30%, rgba(0,212,255,0.1) 0%, transparent 35%),
     radial-gradient(circle at 50% 0%, rgba(0,212,255,0.08) 0%, transparent 50%);
 }
 
-/* .featured-preview-card--cryto:hover removed for performance */
+/* .featured-preview-card--crypto:hover removed for performance */
 
-.featured-preview-card--cryto::before {
+.featured-preview-card--crypto::before {
   background: linear-gradient(90deg, var(--accent-2), var(--accent-3));
 }
 
-.featured-preview-card--cryto::after {
+.featured-preview-card--crypto::after {
   background: radial-gradient(circle at 50% 0%, rgba(0,212,255,0.12) 0%, transparent 60%);
 }
 

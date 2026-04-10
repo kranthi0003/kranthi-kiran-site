@@ -196,7 +196,7 @@ export default function Crypto({ navigate }){
   // Accept navigate prop for routing
   return (
     <>
-    <div className="cryto-page" style={{ padding: 24, minHeight: '80vh' }}>
+    <div className="crypto-page" style={{ padding: 24, minHeight: '80vh' }}>
       {/* Wallet Section */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: 0, marginBottom: 24 }}>
         <button
