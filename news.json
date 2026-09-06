@@ -1,186 +1,186 @@
 {
-  "generated": "2026-09-05T04:28:48.607Z",
+  "generated": "2026-09-06T04:29:14.924Z",
   "reddit": [
     {
-      "title": "A quick guide and gotchas for GitHub OIDC and avoid using AWS permanent credentials in GitHub Actions",
-      "url": "https://www.reddit.com/r/devops/comments/1w7lsrc/a_quick_guide_and_gotchas_for_github_oidc_and/",
-      "by": "SeaworthinessHour233",
-      "time": 1788568313000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "how would one 'invent a new programming language', which is 'several times faster than C++'?",
-      "url": "https://www.reddit.com/r/programming/comments/1w7jjzu/how_would_one_invent_a_new_programming_language/",
-      "by": "michaelhuman",
-      "time": 1788562362000,
+      "title": "How to name things",
+      "url": "https://www.reddit.com/r/programming/comments/1w8jj00/how_to_name_things/",
+      "by": "foobear777",
+      "time": 1788661218000,
       "sub": "r/programming"
     },
     {
-      "title": "Claude reset limits?",
-      "url": "https://www.reddit.com/r/devops/comments/1w7fhsi/claude_reset_limits/",
-      "by": "Maxi-Papa",
-      "time": 1788552809000,
-      "sub": "r/devops"
+      "title": "I wrote a lighthearted guide to learning Monads - maybe you like",
+      "url": "https://www.reddit.com/r/programming/comments/1w8ft2i/i_wrote_a_lighthearted_guide_to_learning_monads/",
+      "by": "manny2206",
+      "time": 1788650614000,
+      "sub": "r/programming"
     },
     {
-      "title": "Looking for a high-quality laptop backpack for work / business travel – available in Europe",
-      "url": "https://www.reddit.com/r/devops/comments/1w7ev1g/looking_for_a_highquality_laptop_backpack_for/",
-      "by": "No-Perspective3501",
-      "time": 1788551460000,
-      "sub": "r/devops"
+      "title": "Seeking advice on traffic mirroring",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w8bzls/seeking_advice_on_traffic_mirroring/",
+      "by": "ez4enz",
+      "time": 1788641020000,
+      "sub": "r/kubernetes"
     },
     {
-      "title": ".name Termination",
-      "url": "https://www.reddit.com/r/programming/comments/1w7dn8q/name_termination/",
+      "title": "Moving Java services off memory-based HPA — is CPU/RPS for HTTP and queue-depth for async the right call?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w8am5y/moving_java_services_off_memorybased_hpa_is/",
+      "by": "ankitjindal9404",
+      "time": 1788637813000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Built a 3-node Kubernetes homelab with Talos Linux",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w82gl6/built_a_3node_kubernetes_homelab_with_talos_linux/",
+      "by": "root0ps",
+      "time": 1788619067000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "There's No Limit to How Bad Code Can Get",
+      "url": "https://www.reddit.com/r/programming/comments/1w81w2j/theres_no_limit_to_how_bad_code_can_get/",
+      "by": "SunnyKatt",
+      "time": 1788617666000,
+      "sub": "r/programming"
+    },
+    {
+      "title": ".gitignore everything by default",
+      "url": "https://www.reddit.com/r/programming/comments/1w80olh/gitignore_everything_by_default/",
+      "by": "der_gopher",
+      "time": 1788614629000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "GitOps config as versioned OCI artifacts in multi cluster setups",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w7vvk7/gitops_config_as_versioned_oci_artifacts_in_multi/",
+      "by": "srknzzz",
+      "time": 1788600008000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "The NX bit is not just about security",
+      "url": "https://www.reddit.com/r/programming/comments/1w7vcf3/the_nx_bit_is_not_just_about_security/",
       "by": "soap94",
-      "time": 1788548791000,
+      "time": 1788598206000,
       "sub": "r/programming"
     },
     {
-      "title": "(Almost) Everything You Need To Know About Pointers in C",
-      "url": "https://www.reddit.com/r/programming/comments/1w773lg/almost_everything_you_need_to_know_about_pointers/",
-      "by": "i_abh_esc_wq",
-      "time": 1788534661000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "Digital audio between synthesizers",
-      "url": "https://www.reddit.com/r/programming/comments/1w768jr/digital_audio_between_synthesizers/",
-      "by": "micro2970",
-      "time": 1788532728000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "How Email Actually Works",
-      "url": "https://www.reddit.com/r/programming/comments/1w76479/how_email_actually_works/",
-      "by": "Sushant098123",
-      "time": 1788532451000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "I built a safety tool for the AWS Console that switched itself off for 6 seconds every time you used it",
-      "url": "https://www.reddit.com/r/devops/comments/1w6zhdi/i_built_a_safety_tool_for_the_aws_console_that/",
-      "by": "Cowijin",
-      "time": 1788514081000,
-      "sub": "r/devops"
-    },
-    {
-      "title": "Blacksmith.sh GitHub runners",
-      "url": "https://www.reddit.com/r/devops/comments/1w6yk47/blacksmithsh_github_runners/",
-      "by": "hashkent",
-      "time": 1788510849000,
-      "sub": "r/devops"
+      "title": "One of My Kubernetes Worker Nodes Went Down… And Took 2 of My Pods With It 😂",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w7g16e/one_of_my_kubernetes_worker_nodes_went_down_and/",
+      "by": "Defiant-Chard-2023",
+      "time": 1788554022000,
+      "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "Claude Code Is a Unix Filter, and Almost Nobody Uses It That Way",
-      "url": "https://medium.com/@anup.karanjkar08/claude-code-is-a-unix-filter-and-almost-nobody-uses-it-that-way-0ab65b810598",
-      "by": "Anup Karanjkar",
-      "time": 1788581942000,
+      "title": "The Command Palette Is the Interface: Why I Built a Keyboard-First Browser on WebKit and Rust",
+      "url": "https://medium.com/@donk8r/the-command-palette-is-the-interface-why-i-built-a-keyboard-first-browser-on-webkit-and-rust-cee213525242",
+      "by": "Don Karter",
+      "time": 1788668784000,
       "tags": [
+        "user-experience",
         "productivity",
-        "devops",
         "software-engineering"
       ]
     },
     {
-      "title": "Your AI Agent May Become Your Interface to the Entire Internet",
-      "url": "https://medium.com/@Artiscribe/your-ai-agent-may-become-your-interface-to-the-entire-internet-f970fb1ddbff",
+      "title": "The AI Agent Internet Is Here How Websites Must Change Before 2027",
+      "url": "https://medium.com/@Artiscribe/the-ai-agent-internet-is-here-how-websites-must-change-before-2027-e63dfd86b960",
       "by": "Artiscribe",
-      "time": 1788581652000,
+      "time": 1788668434000,
       "tags": [
-        "technology",
-        "programming",
-        "money"
+        "artificial-intelligence",
+        "data-science",
+        "software-engineering"
       ]
     },
     {
-      "title": "AI in 2026: what’s actually real, what’s still hype, and where the line is",
-      "url": "https://medium.com/@arai37031/ai-in-2026-whats-actually-real-what-s-still-hype-and-where-the-line-is-23d654c9477a",
-      "by": "Aditya Narayan Rai",
-      "time": 1788581100000,
+      "title": "How to Train an LLM: From Small Tasks to an Intelligent, Human-Like Model",
+      "url": "https://medium.com/codetodeploy/how-to-train-an-llm-from-small-tasks-to-an-intelligent-human-like-model-e45811639bed",
+      "by": "Usama Safdar",
+      "time": 1788668356000,
       "tags": [
-        "productivity",
-        "software-development",
-        "technology"
-      ]
-    },
-    {
-      "title": "The Two-Phase Commit Trap: Why Sagas Fit Microservices Better",
-      "url": "https://medium.com/@rkdixit3/the-two-phase-commit-trap-why-sagas-fit-microservices-better-de927f2c6ad7",
-      "by": "Rajesh Kumar",
-      "time": 1788580930000,
-      "tags": [
-        "data-engineering",
-        "distributed-systems",
+        "software-engineering",
+        "artificial-intelligence",
         "software-development"
       ]
     },
     {
-      "title": "Webhooks vs Polling vs WebSockets: Choosing the Right Real-Time Architecture",
-      "url": "https://medium.com/@chidinmaosonwa-paul/webhooks-vs-polling-vs-websockets-choosing-the-right-real-time-architecture-0ad5a65ade82",
-      "by": "Chidinma Osonwa-Paul",
-      "time": 1788580868000,
+      "title": "The Unconsciousness of Climate Change",
+      "url": "https://medium.com/@carrie.chung.jc/the-unconsciousness-of-climate-change-461a9fb46e1f",
+      "by": "Carrie Chung Jc",
+      "time": 1788668009000,
       "tags": [
-        "websocket",
-        "backend-engineering",
-        "software-engineering"
+        "digital-marketing",
+        "programming",
+        "videogames"
       ]
     },
     {
-      "title": "Loop Engineering: The Coding Skill That Starts After the Prompt",
-      "url": "https://medium.com/lets-code-future/loop-engineering-the-coding-skill-that-starts-after-the-prompt-123b236e04d6",
-      "by": "Life in Anny’s Words",
-      "time": 1788580669000,
+      "title": "How to Build Your Personal AI Assistant in 2026",
+      "url": "https://medium.com/@vitthalhainalkar2193/how-to-build-your-personal-ai-assistant-in-2026-36117aa8b9a4",
+      "by": "Vitthalhainalkar",
+      "time": 1788667883000,
       "tags": [
-        "ai-agent",
-        "software-engineering",
-        "coding"
-      ]
-    },
-    {
-      "title": "The Local Model Won the Benchmark. Tool Calling Failed on the First Invalid JSON Response.",
-      "url": "https://blog.stackademic.com/the-local-model-won-the-benchmark-tool-calling-failed-on-the-first-invalid-json-response-5069f4b8eb18",
-      "by": "Local AI Systems",
-      "time": 1788580444000,
-      "tags": [
-        "software-engineering",
         "artificial-intelligence",
-        "software-development-team"
+        "productivity",
+        "programming"
       ]
     },
     {
-      "title": "The Manager Trap: Why Growing Your Capacity Becomes Your Ceiling",
-      "url": "https://medium.com/design-bootcamp/the-manager-trap-why-growing-your-capacity-becomes-your-ceiling-d2f15d872a07",
-      "by": "Angeline Fan",
-      "time": 1788580430000,
+      "title": "13 Angular Code Smells That Look Completely Normal — Until Your App Gets Big",
+      "url": "https://medium.com/@sourabhda1998/13-angular-code-smells-that-look-completely-normal-until-your-app-gets-big-929dcca4c583",
+      "by": "Coding Mentor",
+      "time": 1788667871000,
       "tags": [
-        "leadership",
+        "javascript",
         "software-engineering",
-        "engineering"
+        "software-development"
       ]
     },
     {
-      "title": "Designing Centralized Observability for Multi-Cluster Kubernetes",
-      "url": "https://medium.com/@gunjanvmirchandani/designing-centralized-observability-for-multi-cluster-kubernetes-12d75bf9c41a",
-      "by": "Gunjan Mirchandani",
-      "time": 1788580310000,
+      "title": "11 Angular Signal Forms Patterns That Will Change How You Build Forms in 2026",
+      "url": "https://medium.com/@sourabhda1998/11-angular-signal-forms-patterns-that-will-change-how-you-build-forms-in-2026-9e439a3a53a5",
+      "by": "Coding Mentor",
+      "time": 1788667601000,
       "tags": [
-        "observability",
-        "devops",
-        "platform-engineering"
+        "software-engineering",
+        "software-development",
+        "programming"
       ]
     },
     {
-      "title": "Stage 5: Metrics with Prometheus",
-      "url": "https://collin-smith.medium.com/stage-5-metrics-with-prometheus-29917570f364",
+      "title": "Your AI Coding Agent Can Now Be Hacked Without Hacking the AI",
+      "url": "https://medium.com/@buyfreecourse7/your-ai-coding-agent-can-now-be-hacked-without-hacking-the-ai-81dc810c3557",
+      "by": "NextGen AI",
+      "time": 1788667437000,
+      "tags": [
+        "claude-code",
+        "cybersecurity",
+        "programming"
+      ]
+    },
+    {
+      "title": "Ox Alpha, GLM-5.3-Flash, and the New Math of Local AI",
+      "url": "https://medium.com/@p4prince2/ox-alpha-glm-5-3-flash-and-the-new-math-of-local-ai-cd387d93455b",
+      "by": "Prince Kushwaha",
+      "time": 1788666891000,
+      "tags": [
+        "machine-learning",
+        "software-engineering",
+        "artificial-intelligence"
+      ]
+    },
+    {
+      "title": "Stage 7: Autoscaling with HPA and Karpenter",
+      "url": "https://collin-smith.medium.com/stage-7-autoscaling-with-hpa-and-karpenter-5290aa2b2f1d",
       "by": "Collin Smith",
-      "time": 1788580046000,
+      "time": 1788666512000,
       "tags": [
-        "aws",
-        "prometheus",
-        "devops"
+        "karpenter",
+        "devops",
+        "aws"
       ]
     }
   ]

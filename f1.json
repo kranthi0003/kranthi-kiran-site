@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-05T04:28:51.339Z",
+  "generated": "2026-09-06T04:29:17.504Z",
   "source": "Jolpica-F1 (Ergast-compatible)",
   "sourceUrl": "https://api.jolpi.ca/ergast/f1/",
   "season": "2026",
-  "round": 12,
+  "round": 13,
   "drivers": [
     {
       "pos": 1,
@@ -660,7 +660,12 @@
       "start": "2026-09-06T13:00:00Z",
       "date": "2026-09-06",
       "winner": null,
-      "pole": null
+      "pole": {
+        "last": "Gasly",
+        "code": "GAS",
+        "teamId": "alpine",
+        "time": "1:21.786"
+      }
     },
     {
       "round": 14,
