@@ -1,186 +1,185 @@
 {
-  "generated": "2026-09-06T04:29:14.924Z",
+  "generated": "2026-09-07T04:32:15.300Z",
   "reddit": [
     {
-      "title": "How to name things",
-      "url": "https://www.reddit.com/r/programming/comments/1w8jj00/how_to_name_things/",
-      "by": "foobear777",
-      "time": 1788661218000,
+      "title": "Making a Python interpreter in 1024 bytes",
+      "url": "https://www.reddit.com/r/programming/comments/1w9c0an/making_a_python_interpreter_in_1024_bytes/",
+      "by": "azhenley",
+      "time": 1788738235000,
       "sub": "r/programming"
     },
     {
-      "title": "I wrote a lighthearted guide to learning Monads - maybe you like",
-      "url": "https://www.reddit.com/r/programming/comments/1w8ft2i/i_wrote_a_lighthearted_guide_to_learning_monads/",
-      "by": "manny2206",
-      "time": 1788650614000,
+      "title": "It took a year to ship WebAssembly in Anubis",
+      "url": "https://www.reddit.com/r/programming/comments/1w9brw5/it_took_a_year_to_ship_webassembly_in_anubis/",
+      "by": "shadowh511",
+      "time": 1788737593000,
       "sub": "r/programming"
     },
     {
-      "title": "Seeking advice on traffic mirroring",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w8bzls/seeking_advice_on_traffic_mirroring/",
-      "by": "ez4enz",
-      "time": 1788641020000,
+      "title": "Home lab setup",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w9a5wx/home_lab_setup/",
+      "by": "Economics_geek1",
+      "time": 1788733410000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "Moving Java services off memory-based HPA — is CPU/RPS for HTTP and queue-depth for async the right call?",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w8am5y/moving_java_services_off_memorybased_hpa_is/",
-      "by": "ankitjindal9404",
-      "time": 1788637813000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "Built a 3-node Kubernetes homelab with Talos Linux",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w82gl6/built_a_3node_kubernetes_homelab_with_talos_linux/",
-      "by": "root0ps",
-      "time": 1788619067000,
-      "sub": "r/kubernetes"
-    },
-    {
-      "title": "There's No Limit to How Bad Code Can Get",
-      "url": "https://www.reddit.com/r/programming/comments/1w81w2j/theres_no_limit_to_how_bad_code_can_get/",
-      "by": "SunnyKatt",
-      "time": 1788617666000,
+      "title": "From a Chocolate Wrapper to Concurrent InnoDB Page Splits",
+      "url": "https://www.reddit.com/r/programming/comments/1w96yd1/from_a_chocolate_wrapper_to_concurrent_innodb/",
+      "by": "drrtuy-b",
+      "time": 1788725779000,
       "sub": "r/programming"
     },
     {
-      "title": ".gitignore everything by default",
-      "url": "https://www.reddit.com/r/programming/comments/1w80olh/gitignore_everything_by_default/",
-      "by": "der_gopher",
-      "time": 1788614629000,
-      "sub": "r/programming"
-    },
-    {
-      "title": "GitOps config as versioned OCI artifacts in multi cluster setups",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w7vvk7/gitops_config_as_versioned_oci_artifacts_in_multi/",
-      "by": "srknzzz",
-      "time": 1788600008000,
+      "title": "Why Your AI Agent Sucks at Bash (and How We Built a CLI for LLM-Native DevOps)",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w934kh/why_your_ai_agent_sucks_at_bash_and_how_we_built/",
+      "by": "Own_Stick_7214",
+      "time": 1788717341000,
       "sub": "r/kubernetes"
     },
     {
-      "title": "The NX bit is not just about security",
-      "url": "https://www.reddit.com/r/programming/comments/1w7vcf3/the_nx_bit_is_not_just_about_security/",
-      "by": "soap94",
-      "time": 1788598206000,
+      "title": "Kubernetes node-level resource balancing / workload isolation",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w92xm5/kubernetes_nodelevel_resource_balancing_workload/",
+      "by": "Specialist_Horror400",
+      "time": 1788716912000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Continued Fractions And Lattice Sieving",
+      "url": "https://www.reddit.com/r/programming/comments/1w91ztc/continued_fractions_and_lattice_sieving/",
+      "by": "DataBaeBee",
+      "time": 1788714894000,
       "sub": "r/programming"
     },
     {
-      "title": "One of My Kubernetes Worker Nodes Went Down… And Took 2 of My Pods With It 😂",
-      "url": "https://www.reddit.com/r/kubernetes/comments/1w7g16e/one_of_my_kubernetes_worker_nodes_went_down_and/",
-      "by": "Defiant-Chard-2023",
-      "time": 1788554022000,
+      "title": "Modding a 20-year-old game to make it even better (part 2!)",
+      "url": "https://www.reddit.com/r/programming/comments/1w90tg1/modding_a_20yearold_game_to_make_it_even_better/",
+      "by": "HHalo6",
+      "time": 1788712233000,
+      "sub": "r/programming"
+    },
+    {
+      "title": "How are people managing 100s–1000s of on-prem/edge Kubernetes clusters?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w8u52h/how_are_people_managing_100s1000s_of_onpremedge/",
+      "by": "Lks1123",
+      "time": 1788695568000,
+      "sub": "r/kubernetes"
+    },
+    {
+      "title": "Spent 40 minutes last week just correlating alerts to find the actual root cause — is this normal or are we doing something wrong?",
+      "url": "https://www.reddit.com/r/kubernetes/comments/1w8ty2h/spent_40_minutes_last_week_just_correlating/",
+      "by": "Outside-Champion9078",
+      "time": 1788694979000,
       "sub": "r/kubernetes"
     }
   ],
   "medium": [
     {
-      "title": "The Command Palette Is the Interface: Why I Built a Keyboard-First Browser on WebKit and Rust",
-      "url": "https://medium.com/@donk8r/the-command-palette-is-the-interface-why-i-built-a-keyboard-first-browser-on-webkit-and-rust-cee213525242",
-      "by": "Don Karter",
-      "time": 1788668784000,
+      "title": "Capgemini DevOps L1 Interview Experience: Questions Asked",
+      "url": "https://medium.com/@preetjit82/capgemini-devops-l1-interview-experience-questions-asked-90daf1f09fe9",
+      "by": "Interview Simplified",
+      "time": 1788755340000,
       "tags": [
-        "user-experience",
-        "productivity",
-        "software-engineering"
+        "interview-questions",
+        "devops",
+        "jobs"
       ]
     },
     {
-      "title": "The AI Agent Internet Is Here How Websites Must Change Before 2027",
-      "url": "https://medium.com/@Artiscribe/the-ai-agent-internet-is-here-how-websites-must-change-before-2027-e63dfd86b960",
-      "by": "Artiscribe",
-      "time": 1788668434000,
+      "title": "Tredence Data Engineering Interview Will Be 10X Easier With These 15 Questions",
+      "url": "https://medium.com/@preetjit82/tredence-data-engineering-interview-will-be-10x-easier-with-these-15-questions-88898bd95b16",
+      "by": "Interview Simplified",
+      "time": 1788755292000,
       "tags": [
-        "artificial-intelligence",
-        "data-science",
-        "software-engineering"
-      ]
-    },
-    {
-      "title": "How to Train an LLM: From Small Tasks to an Intelligent, Human-Like Model",
-      "url": "https://medium.com/codetodeploy/how-to-train-an-llm-from-small-tasks-to-an-intelligent-human-like-model-e45811639bed",
-      "by": "Usama Safdar",
-      "time": 1788668356000,
-      "tags": [
-        "software-engineering",
-        "artificial-intelligence",
-        "software-development"
-      ]
-    },
-    {
-      "title": "The Unconsciousness of Climate Change",
-      "url": "https://medium.com/@carrie.chung.jc/the-unconsciousness-of-climate-change-461a9fb46e1f",
-      "by": "Carrie Chung Jc",
-      "time": 1788668009000,
-      "tags": [
-        "digital-marketing",
         "programming",
-        "videogames"
+        "jobs",
+        "interview-questions"
       ]
     },
     {
-      "title": "How to Build Your Personal AI Assistant in 2026",
-      "url": "https://medium.com/@vitthalhainalkar2193/how-to-build-your-personal-ai-assistant-in-2026-36117aa8b9a4",
-      "by": "Vitthalhainalkar",
-      "time": 1788667883000,
+      "title": "What Android Studio’s “Migrate to Gradle Daemon Toolchain” Notification Actually Means",
+      "url": "https://towardsdev.com/what-android-studios-migrate-to-gradle-daemon-toolchain-notification-actually-means-8dbc7925b540",
+      "by": "Aslam Hossin",
+      "time": 1788755217000,
       "tags": [
-        "artificial-intelligence",
-        "productivity",
-        "programming"
+        "gradle",
+        "programming",
+        "koltin"
       ]
     },
     {
-      "title": "13 Angular Code Smells That Look Completely Normal — Until Your App Gets Big",
-      "url": "https://medium.com/@sourabhda1998/13-angular-code-smells-that-look-completely-normal-until-your-app-gets-big-929dcca4c583",
-      "by": "Coding Mentor",
-      "time": 1788667871000,
+      "title": "My Manager Called Me the Most Reliable Engineer on the Team. Then Promoted Someone Else.",
+      "url": "https://medium.com/@developeryusuf/my-manager-called-me-the-most-reliable-engineer-on-the-team-then-promoted-someone-else-b12fdb8eddb4",
+      "by": "Yusuf Seyitoğlu",
+      "time": 1788754729000,
       "tags": [
-        "javascript",
-        "software-engineering",
-        "software-development"
+        "careers",
+        "management",
+        "leadership"
       ]
     },
     {
-      "title": "11 Angular Signal Forms Patterns That Will Change How You Build Forms in 2026",
-      "url": "https://medium.com/@sourabhda1998/11-angular-signal-forms-patterns-that-will-change-how-you-build-forms-in-2026-9e439a3a53a5",
-      "by": "Coding Mentor",
-      "time": 1788667601000,
+      "title": "Kubernetes 1.37 Can Scale Your Deployment to ZERO — But One Wrong Setting Can Break Everything",
+      "url": "https://medium.com/@TheRealShashankT/kubernetes-1-37-can-scale-your-deployment-to-zero-but-one-wrong-setting-can-break-everything-8f4872cb1c58",
+      "by": "Shashank Tiwari",
+      "time": 1788754599000,
       "tags": [
-        "software-engineering",
-        "software-development",
-        "programming"
+        "cloud-cost-optimization",
+        "platform-engineering",
+        "devops"
       ]
     },
     {
-      "title": "Your AI Coding Agent Can Now Be Hacked Without Hacking the AI",
-      "url": "https://medium.com/@buyfreecourse7/your-ai-coding-agent-can-now-be-hacked-without-hacking-the-ai-81dc810c3557",
-      "by": "NextGen AI",
-      "time": 1788667437000,
+      "title": "Building a Containerized Static Website with Docker, Nginx, Bind Mounts, Apache, Gzip, and Custom…",
+      "url": "https://medium.com/@rester.mcglown/building-a-containerized-static-website-with-docker-nginx-bind-mounts-apache-gzip-and-custom-f971a6627e39",
+      "by": "Rester L. McGlown Jr.",
+      "time": 1788754497000,
       "tags": [
-        "claude-code",
-        "cybersecurity",
-        "programming"
+        "cloud-computing",
+        "docker",
+        "nginx"
       ]
     },
     {
-      "title": "Ox Alpha, GLM-5.3-Flash, and the New Math of Local AI",
-      "url": "https://medium.com/@p4prince2/ox-alpha-glm-5-3-flash-and-the-new-math-of-local-ai-cd387d93455b",
-      "by": "Prince Kushwaha",
-      "time": 1788666891000,
+      "title": "The End of the Autocomplete Era: How AI is Orchestrating the Entire Data Pipeline",
+      "url": "https://medium.com/towards-data-engineering/the-end-of-the-autocomplete-era-how-ai-is-orchestrating-the-entire-data-pipeline-396a0ed1c1d4",
+      "by": "B V Sarath Chandra",
+      "time": 1788754161000,
       "tags": [
-        "machine-learning",
-        "software-engineering",
+        "programming",
+        "data-engineering",
+        "data-science"
+      ]
+    },
+    {
+      "title": "How Rust Lays Out Memory, and Why Java Instincts Mislead You",
+      "url": "https://medium.com/@sam.euchaliptus/how-rust-lays-out-memory-and-why-java-instincts-mislead-you-e3a0e6f3b086",
+      "by": "Putu Mas Mertayasa",
+      "time": 1788753996000,
+      "tags": [
+        "jvm",
+        "programming",
+        "rust"
+      ]
+    },
+    {
+      "title": "Notes on AI Coding That Lives in the Browser",
+      "url": "https://medium.com/@magicvip2026/notes-on-ai-coding-that-lives-in-the-browser-408ce1512aa9",
+      "by": "magicmonster",
+      "time": 1788753986000,
+      "tags": [
+        "programming",
         "artificial-intelligence"
       ]
     },
     {
-      "title": "Stage 7: Autoscaling with HPA and Karpenter",
-      "url": "https://collin-smith.medium.com/stage-7-autoscaling-with-hpa-and-karpenter-5290aa2b2f1d",
-      "by": "Collin Smith",
-      "time": 1788666512000,
+      "title": "250 Days of CodeChef: The Journey Behind the Streak",
+      "url": "https://medium.com/@kmnayeem/250-days-of-codechef-the-journey-behind-the-streak-5d35516a857f",
+      "by": "K. M. Abdullah Al - Nayeem",
+      "time": 1788753904000,
       "tags": [
-        "karpenter",
-        "devops",
-        "aws"
+        "programming",
+        "competitive-programming",
+        "coding"
       ]
     }
   ]
